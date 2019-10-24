@@ -40,6 +40,7 @@
         <div class="navbar-item">
           <div class="field is-grouped">
             <% if user_signed_in? %>
+              <%= link_to "Add Product", new_product_path, class:"navbar-item button is-warning" %>
               <div class="navbar-item has-dropdown is-hoverable">
                 <p class="navbar-link">Hello, <%= current_user.full_name %>😃<p/>
                 <div class="navbar-dropdown is-right">

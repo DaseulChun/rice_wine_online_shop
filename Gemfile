@@ -26,6 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'turbolinks', '~> 5.2.0'
 gem "bulma-rails", "~> 0.7.5"
 gem 'simple_form'
 gem 'gravatar_image_tag', '~> 1.2'

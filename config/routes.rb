@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'welcome#index'
+  root 'products#index'
 
   resources :users, only: [:new, :create]
 
@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     delete :destroy, on: :collection
   end
   
+  resources :products
 end
