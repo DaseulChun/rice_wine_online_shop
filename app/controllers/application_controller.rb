@@ -17,4 +17,10 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+
+  def get_current_cart
+    if user_signed_in?
+      @current_cart = current_user.cart
+    end
+  end
 end

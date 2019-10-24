@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_one_attached :image
+  has_many :line_items, dependent: :destroy
+  has_many :carts, through: :line_items, source: :cart
 
   validates( :title, 
             presence: true, 
