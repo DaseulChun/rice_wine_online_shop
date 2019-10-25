@@ -5,7 +5,7 @@ class LineItemsController < ApplicationController
   def create
     @product = Product.find(params[:product_id])
     @cart = @current_user.cart
-    @line_item = @cart.add_product(@product)
+    @line_item = @cart.add_product(@product, @cart)
 
     if @line_item.save
       flash[:notice] = "Item added to the cart"
