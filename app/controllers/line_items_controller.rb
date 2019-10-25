@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :find_line_item, only: [:update, :destroy]
 
   def create
     @product = Product.find(params[:product_id])
@@ -9,11 +9,18 @@ class LineItemsController < ApplicationController
 
     if @line_item.save
       flash[:notice] = "Item added to the cart"
-      redirect_to root_path
+      redirect_to cart_path(@cart)
     else
       flash[:alert] = "Try again"
       render "users/new"
     end
+  end
+
+  def destroy
+    @cart = @current_user.cart
+    @line_item.destroy
+    flash[:notice] =  'Item successfully removed'
+    redirect_to cart_path(@cart)
   end
 
   private
