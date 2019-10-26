@@ -10,6 +10,8 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
+    
+    <%#For Stripe%>
     <script src="https://js.stripe.com/v3/"></script>
 
   </head>
@@ -43,8 +45,21 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="field is-grouped">
+
             <% if user_signed_in? %>
+              <%# Link to : Add Product, only available to ADMIN USER %>
               <%= link_to "Add Product", new_product_path, class:"navbar-item button is-warning" %>
+
+              <%# Link to : Shopping Cart Show Page %>
+              <%= link_to cart_path(@current_cart), class:"navbar-item button is-primary" do %>
+              <span class="icon is-small">
+                <i class="fa fa-shopping-cart"></i>
+              </span>
+              <span>Cart
+                <%= count_cart_item_totals %>
+                </span>
+              <% end %>
+
               <div class="navbar-item has-dropdown is-hoverable">
                 <p class="navbar-link">Hello, <%= current_user.full_name %>😃<p/>
                 <div class="navbar-dropdown is-right">

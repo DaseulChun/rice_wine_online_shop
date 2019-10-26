@@ -64,6 +64,7 @@ GEM
     bulma-rails (0.7.5)
       sassc (~> 2.0)
     byebug (11.0.1)
+    cancancan (3.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
     erubi (1.9.0)
@@ -193,6 +194,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   bulma-rails (~> 0.7.5)
   byebug
+  cancancan
   gravatar_image_tag (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails

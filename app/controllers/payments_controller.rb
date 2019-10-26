@@ -14,7 +14,6 @@ class PaymentsController < ApplicationController
       source: params[:stripe_token],
       description: "Charge for Cart #{@cart.id} by #{current_user.full_name} (#{current_user.id})"
     })
-    byebug
     @payment = Payment.new txn_id: charge.id,
                             amount: @cart.total_price,
                             cart_id: @cart.id
