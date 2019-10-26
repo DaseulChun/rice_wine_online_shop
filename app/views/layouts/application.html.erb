@@ -5,9 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://js.stripe.com/v3/"></script>
+
   </head>
 
   <body class="<%= yield (:body_class) %>">

@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def get_current_cart
     if user_signed_in?
-      @current_cart = current_user.cart
+      @current_cart = current_user.carts.last
     end
   end
 end

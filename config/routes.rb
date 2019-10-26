@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   
   resources :products
   resources :line_items
-  resources :carts
+  resources :carts do
+    resources :payments
+  end
 end

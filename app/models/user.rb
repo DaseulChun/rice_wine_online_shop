@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
-  has_one :cart
+  has_many :payments, dependent: :nullify
+  has_many :carts, dependent: :nullify
   has_many :products, dependent: :destroy
 
   after_create :create_cart
@@ -8,8 +9,6 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}".strip
   end
-
-  private
 
   def create_cart
     Cart.create(user_id: self.id)
