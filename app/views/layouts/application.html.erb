@@ -48,16 +48,20 @@
 
             <% if user_signed_in? %>
               <%# Link to : Add Product, only available to ADMIN USER %>
-              <%= link_to "Add Product", new_product_path, class:"navbar-item button is-warning" %>
+              <% if current_user.is_admin %>
+                <%= link_to "Add Product", new_product_path, class:"navbar-item button is-warning" %>
+              <% end %>
 
-              <%# Link to : Shopping Cart Show Page %>
-              <%= link_to cart_path(@current_cart), class:"navbar-item button is-primary" do %>
-              <span class="icon is-small">
-                <i class="fa fa-shopping-cart"></i>
-              </span>
-              <span>Cart
-                <%= count_cart_item_totals %>
+              <%# Link to : Shopping Cart Show Page, only available to CUSTOMER USER %>
+              <% if !current_user.is_admin %>
+                <%= link_to cart_path(@current_cart), class:"navbar-item button is-primary" do %>
+                <span class="icon is-small">
+                  <i class="fa fa-shopping-cart"></i>
                 </span>
+                <span>Cart
+                  <%= count_cart_item_totals %>
+                  </span>
+                <% end %>
               <% end %>
 
               <div class="navbar-item has-dropdown is-hoverable">

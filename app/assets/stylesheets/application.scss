@@ -20,6 +20,25 @@
 $link: #444;
 $link-hover: #222;
 
+.welcome-button {
+  margin-left:43%;
+  margin-right:auto;
+  display:block;
+  margin-top:30%;
+  margin-bottom:0%
+}
+
+#video-background {
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+}
+
 .notification {
   border-radius: 0;
 }
@@ -31,6 +50,7 @@ $link-hover: #222;
 .product-index-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 10px;
 
   .product {
     border-left: 0;

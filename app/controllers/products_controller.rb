@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   before_action :authenticate_user!, except: [:index, :show]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
+  before_action :authorize!, except: [:index, :show]
 
   def index
     @products = Product.order(created_at: :desc)
@@ -55,5 +56,9 @@ class ProductsController < ApplicationController
 
   def find_product
     @product = Product.find params[:id]
+  end
+
+  def authorize!
+    redirect_to root_path, alert: 'Not Authorized' unless can?(:crud, @product)
   end
 end
