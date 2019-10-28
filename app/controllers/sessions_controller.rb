@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if @user&.authenticate(params[:sessions][:password])
       session[:user_id] = @user.id
-      redirect_to root_path, notice: "Logged In"
+      redirect_to products_path, notice: "Logged In"
     else
       flash[:alert] = "Wrong email or password"
       render :new

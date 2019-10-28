@@ -20,7 +20,7 @@ class PaymentsController < ApplicationController
     @payment.user = current_user
     current_user.create_cart
     if @payment.save
-      redirect_to root_path, notice: 'Thanks for completing the payment'
+      redirect_to products_path, notice: 'Thanks for completing the payment'
     else
       redirect_to root_path, notice: 'Cart is NOT created'
     end
