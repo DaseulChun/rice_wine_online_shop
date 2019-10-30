@@ -87,14 +87,17 @@ $link-hover: #222;
 .product-index-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  grid-gap: 10px;
-
+  grid-gap: 13px;
+  
   .product {
     border-left: 0;
     border-top: 0;
     position: relative;
     min-height: 375px;
-
+    &:hover {
+      border: 1px solid #3E363F;
+    }
+    
     .title {
       line-height: 1.6rem;
     }

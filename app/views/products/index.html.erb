@@ -10,10 +10,11 @@
 </section>
 <% end %>
 
+<% content_for :body_class, 'bg-light' %>
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
-    <div class="product border-light ">
+    <div class="product border-light bg-white">
       <div class="product-thumb">
       <%= link_to image_tag(product.image.variant(resize: '500X500')), product_path(product) %>
     </div>
