@@ -15,14 +15,13 @@
  */
 
 $primary: #3E363F;
+$link: #444;
+$link-hover: #222;
 
 @import "bulma";
 @import "functions";
 
-$link: #444;
-$link-hover: #222;
-
-.title {
+.title.white {
   color: white;
 }
 
@@ -60,11 +59,10 @@ $link-hover: #222;
 }
 
 .welcome-button {
-  margin-left:43%;
-  margin-right:auto;
-  display:block;
-  margin-top:30%;
-  margin-bottom:0%
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 500px;
 }
 
 #video-background {
@@ -118,12 +116,6 @@ $link-hover: #222;
       &:hover {
         opacity: .9;
       }
-    }
-
-    .condition {
-      position: absolute;
-      bottom: 10px;
-      right: 9px;
     }
   }
 }

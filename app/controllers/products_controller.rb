@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
     @product.user = current_user
 
     if @product.save
-      flash[:notice] = "Product added successfully"
       redirect_to product_path(@product)
     else
       flash[:alert] = "Try again"
