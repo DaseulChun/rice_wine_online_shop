@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
+    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" %>
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
@@ -64,7 +64,7 @@
               <% end %>
 
               <div class="navbar-item has-dropdown is-hoverable">
-                <p class="navbar-link">Hello, <%= current_user.full_name %>😃<p/>
+                <p class="navbar-link">Hello, <%= current_user.full_name %><p/>
                 <div class="navbar-dropdown is-right">
                   <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"navbar-item" %>
                 </div>

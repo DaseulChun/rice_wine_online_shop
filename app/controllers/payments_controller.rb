@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
     @payment.user = current_user
     current_user.create_cart
     if @payment.save
-      redirect_to products_path, notice: 'Thanks for completing the payment'
+      redirect_to thank_you_path, notice: 'Thanks for completing the payment'
     else
       redirect_to root_path, notice: 'Cart is NOT created'
     end
@@ -23,5 +23,9 @@ class PaymentsController < ApplicationController
       puts "ERROR #{e.message}"
       flash.now[:alert] = 'Problem handling the payment, please try again.'
       render "products/index"
+    end
+
+    def thank_you
+      
     end
 end

@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :carts do
     resources :payments
   end
+
+  get "/thank_you" , to: "payments#thank_you"
 end
