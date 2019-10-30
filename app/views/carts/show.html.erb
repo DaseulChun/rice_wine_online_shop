@@ -14,10 +14,41 @@
       <%= button_to 'Empty Cart', cart_path(@cart), method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
     </div>
     <div class="column total has-text-right">
-      <%= link_to 'Check Out', new_cart_payment_path(@cart), class: "button is-primary" %>
+      <%= link_to 'Check Out', "#", class: "button is-primary", id: "check-out-button" %>
       <h4 class="title is-4">
         <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
       </h4>
     </div>
   </div>
 </section>
+
+<div class="modal" id="payment-modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Credit or Debit Card</p>
+      <button class="delete" aria-label="close" id="modal-close"></button>
+    </header>
+    <section class="modal-card-body">
+      <%= form_tag cart_payments_path(@cart), id: 'stripe-token-form' do %>
+        <%= hidden_field_tag :stripe_token %>
+      <% end %>
+
+      <form action="/charge" method="post" id="payment-form">
+        <div class="form-group">
+          <label for="card-element"></label>
+          <div style="width: 30em height: 2em" id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+
+          <!-- Used to display Element errors. -->
+          <div id="card-errors" role="alert"></div>
+        </div>
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-primary">Submit Payment</button>
+    
+      <%= link_to "Cancel", cart_path(@cart), class:"button is-danger" %>
+    </footer>
+  </div>
+</div>

@@ -31,6 +31,7 @@ gem "bulma-rails", "~> 0.7.5"
 gem 'simple_form'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'mini_magick'
+gem 'image_processing'
 gem 'stripe'
 gem 'cancancan'
 

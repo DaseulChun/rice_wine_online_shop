@@ -1,11 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-
-    @cart = Cart.find params[:cart_id]
-  end
-
   def create
     @cart = Cart.find params[:cart_id]
     charge = Stripe::Charge.create({
@@ -27,6 +22,6 @@ class PaymentsController < ApplicationController
     rescue => e
       puts "ERROR #{e.message}"
       flash.now[:alert] = 'Problem handling the payment, please try again.'
-      render :new
+      render "products/index"
     end
 end
