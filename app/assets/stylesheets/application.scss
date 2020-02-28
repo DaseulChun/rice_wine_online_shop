@@ -58,6 +58,26 @@ $link-hover: #222;
   margin-bottom: 1.5em;
 }
 
+.instructions {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
+.instructions-heading {
+  font-size: 7em;
+  color:#3E363F;
+}
+
+.instructions-body {
+  font-size: 1.7em;
+  line-height: 1.2em;
+}
+
+.instructions-body div {
+  margin-bottom: 50px;
+}
+
 .welcome-button {
   position: fixed;
   left: 85%;

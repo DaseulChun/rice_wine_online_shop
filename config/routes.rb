@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   get "/thank_you" , to: "payments#thank_you"
+  get "/instructions", to: "welcome#instructions"
 end

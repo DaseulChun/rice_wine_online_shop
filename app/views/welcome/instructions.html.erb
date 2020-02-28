@@ -1,0 +1,21 @@
+<div class="instructions">
+<div class="instructions-container">
+  <h1 class="instructions-heading">Instructions</h1>
+  <div class="instructions-body">
+    <div class="instructions-body-customer">
+      <p style="font-weight: 700;">How to login as a Customer?</p>
+      <p>email: customer.user@example.com</p>
+      <p>password: supersecret</p>
+      <p>As a customer, you can add products to the cart</p>
+    </div>
+    <div class="instructions-body-admin">
+      <p style="font-weight: 700;">How to login as a Admin User?</p>
+      <p>email: admin.user@example.com</p>
+      <p>password: supersecret</p>
+      <p>As a admin user, you can add/ edit/ delete products</p>
+    </div>
+  </div>
+  <%= link_to 'Back to Main', products_path , class: "button is-primary is-outlined" %>
+</div>
+<div>
+<%= image_tag "rice_wine_main_3.jpg", alt: "thank you image", id: "thank-you" %>
