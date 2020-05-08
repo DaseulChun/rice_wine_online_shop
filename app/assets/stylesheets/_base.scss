@@ -1,0 +1,15 @@
+$primary: #3E363F;
+$link: #444;
+$link-hover: #222;
+
+.title.white {
+  color: white;
+}
+
+.notification {
+  border-radius: 0;
+}
+
+.notification:not(:last-child) {
+  margin-bottom: 0;
+}

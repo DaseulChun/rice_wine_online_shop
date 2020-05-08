@@ -29,3 +29,36 @@
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
 }
+
+#thank-you {
+  position: fixed;
+  right: 0; 
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  width: auto; 
+  height: auto;
+  z-index: -100;
+  opacity: 0.6;
+}
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+
+.thank-you-heading {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 5em;
+  color:#3E363F;
+}
+
+.thank-you-body {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 1.2em;
+  color: #3E363F;
+  text-align: center;
+  margin-bottom: 1.5em;
+}

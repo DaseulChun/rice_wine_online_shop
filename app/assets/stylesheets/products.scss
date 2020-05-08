@@ -3,10 +3,54 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .product-show {
-  .feature-image img {
-    // width: 100%;
-  }
+  // .feature-image img {
+  //   // width: 100%;
+  // }
   .add-to-cart {
     width: 100%;
+  }
+}
+
+.product-index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 13px;
+  
+  .product {
+    border-left: 0;
+    border-top: 0;
+    position: relative;
+    min-height: 375px;
+    &:hover {
+      border: 1px solid #3E363F;
+    }
+    
+    .title {
+      line-height: 1.6rem;
+    }
+    .price {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    .admin-button {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+    }
+  }
+
+  .product-thumb {
+    position: relative;
+    max-height: 250px;
+    overflow: hidden;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+      &:hover {
+        opacity: .9;
+      }
+    }
   }
 }
