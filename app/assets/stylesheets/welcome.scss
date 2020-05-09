@@ -2,6 +2,61 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.header {
+  grid-column: full-start / full-end;
+  grid-row: 1 / 2;
+
+  &__hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('hero.jpeg');
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.main {
+  grid-column: content-start / content-end;
+  grid-row: 2 / 3;
+
+  background-color: powderblue;
+}
+
+.video {
+  grid-column: full-start / full-end;
+  grid-row: 3 / 4;
+
+  background-color: sandybrown;
+}
+
+.about {
+  grid-column: content-start / content-end;
+  grid-row: 4 / 5;
+
+  background-color: steelblue;
+}
+
+.contact {
+  grid-column: content-start / content-end;
+  grid-row: 5 / 6;
+
+  background-color: thistle;
+}
+
+.footer {
+  grid-column: full-start / full-end;
+  grid-row: 6 / 7;
+
+  background-color: tomato;
+}
+
 .instructions {
   display: flex;
   height: 100vh;

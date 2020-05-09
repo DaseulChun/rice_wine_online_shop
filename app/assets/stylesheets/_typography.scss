@@ -1,0 +1,16 @@
+.heading-1 {
+  font-family: $font-display;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 6rem;
+  color: $color-white;
+}
+
+.btn {
+  border: 1px solid $color-white;
+  display: inline-block;
+  padding: 1.5rem 4rem;
+  color: $color-white;
+  text-decoration: none;
+  text-transform: uppercase;
+}

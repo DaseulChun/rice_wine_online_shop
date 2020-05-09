@@ -1,6 +1,14 @@
+// COLOR VARIABLES
 $primary: #3E363F;
 $link: #444;
 $link-hover: #222;
+
+$color-white: #fff;
+$color-primary: #4e4b42;
+
+// FONTS
+$font-primary: 'Cinzel', serif;
+$font-display: 'Lato', sans-serif;
 
 .title.white {
   color: white;
@@ -12,4 +20,30 @@ $link-hover: #222;
 
 .notification:not(:last-child) {
   margin-bottom: 0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  box-sizing: border-box;
+}
+
+body {
+  color: red;
+  font-weight: 400;
+  font-family: $font-display;
+  font-size: 1.6rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-rows: 100vh repeat(6, min-content);
+  grid-template-columns: [full-start] minmax(6rem, 1fr) minmax(min-content, 14rem) [content-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [content-end] minmax(min-content, 14rem) minmax(6rem, 1fr) [full-end];
 }
