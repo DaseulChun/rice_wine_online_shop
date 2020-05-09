@@ -13,4 +13,11 @@
   color: $color-white;
   text-decoration: none;
   text-transform: uppercase;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    background-color: rgba(#d8d7ca, .5);
+    border: 1px solid rgba(#d8d7ca, .5);
+  }
 }
