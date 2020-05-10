@@ -18,6 +18,7 @@
   </head>
 
   <body class="<%= yield (:body_class) %>">
+  <div class="grid-container">
     <% if flash[:notice] %>
       <div class="notification is-success global-notification">
         <p class="notice"><%= notice %></p>
@@ -30,61 +31,46 @@
     </div>
     <% end %>
 
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <%= link_to products_path, class:"navbar-item" do %>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar__brand">
+        <%= link_to products_path, class:"navbar__logo" do %>
           <h1 class="title white is-5">Let's Drink!</h1>
         <% end  %>
-      <div class="navbar-burger burger" data-target="navbar">
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
-    </div>
 
-    <div id="navbar" class="navbar-menu">
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="field is-grouped">
-            <%= link_to "Instructions", "/instructions", class:"navbar-item button is-primary" %>
-            <%= link_to "Contact", products_path, class:"navbar-item button is-primary" %>
-            <% if user_signed_in? %>
-              <%# Link to : Add Product, only available to ADMIN USER %>
-              <% if current_user.is_admin %>
-                <%= link_to "Add Product", new_product_path, class:"navbar-item button is-primary" %>
-              <% end %>
+      <div class="navbar__list">
+        <%= link_to "Instructions", "/instructions", class:"navbar__item" %>
+        <%= link_to "Contact", products_path, class:"navbar__item" %>
+        <% if user_signed_in? %>
+          <%# Link to : Add Product, only available to ADMIN USER %>
+          <% if current_user.is_admin %>
+            <%= link_to "Add Product", new_product_path, class:"navbar__item" %>
+          <% end %>
 
-              <%# Link to : Shopping Cart Show Page, only available to CUSTOMER USER %>
-              <% if !current_user.is_admin %>
-                <%= link_to cart_path(@current_cart), class:"navbar-item button is-primary" do %>
-                <span class="icon is-small">
-                  <i class="fa fa-shopping-cart"></i>
-                </span>
-                <span>Cart
-                  <%= count_cart_item_totals %>
-                  </span>
-                <% end %>
-              <% end %>
-
-              <div class="navbar-item has-dropdown is-hoverable">
-                <p class="navbar-link">Hello, <%= current_user.full_name %><p/>
-                <div class="navbar-dropdown is-right">
-                  <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"navbar-item" %>
-                </div>
-              </div>
-            <% else %>
-              <%= link_to "Sign In", new_session_path, class:"navbar-item button is-primary" %>
-              <%= link_to "Sign Up", new_user_path, class:"navbar-item button is-primary"%>
+          <%# Link to : Shopping Cart Show Page, only available to CUSTOMER USER %>
+          <% if !current_user.is_admin %>
+            <%= link_to cart_path(@current_cart), class:"navbar__item" do %>
+            <span class="icon is-small">
+              <i class="fa fa-shopping-cart"></i>
+            </span>
+            <span>Cart
+              <%= count_cart_item_totals %>
+              </span>
             <% end %>
-          </div>
-        </div>
+          <% end %>
+          
+          <p class="navbar__item">Hello, <%= current_user.full_name %></p>
+          <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"navbar__item" %>
+          
+        <% else %>
+          <%= link_to "Sign In", new_session_path, class:"navbar__item" %>
+          <%= link_to "Sign Up", new_user_path, class:"navbar__item"%>
+        <% end %>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <%= yield(:header) %>
-
-  <div class="grid-container">
+    <%= yield(:header) %>
 
     <%= yield %>
 

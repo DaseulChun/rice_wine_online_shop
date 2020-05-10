@@ -4,7 +4,7 @@
 
 .header {
   grid-column: full-start / full-end;
-  grid-row: 1 / 2;
+  // grid-row: 1 / 2;
 
   &__hero-image {
     width: 100%;
@@ -24,35 +24,35 @@
 
 .main {
   grid-column: content-start / content-end;
-  grid-row: 2 / 3;
+  // grid-row: 2 / 3;
 
   background-color: powderblue;
 }
 
 .video {
   grid-column: full-start / full-end;
-  grid-row: 3 / 4;
+  // grid-row: 3 / 4;
 
   background-color: sandybrown;
 }
 
 .about {
   grid-column: content-start / content-end;
-  grid-row: 4 / 5;
+  // grid-row: 4 / 5;
 
   background-color: steelblue;
 }
 
 .contact {
   grid-column: content-start / content-end;
-  grid-row: 5 / 6;
+  // grid-row: 5 / 6;
 
   background-color: thistle;
 }
 
 .footer {
   grid-column: full-start / full-end;
-  grid-row: 6 / 7;
+  // grid-row: 6 / 7;
 
   background-color: tomato;
 }
