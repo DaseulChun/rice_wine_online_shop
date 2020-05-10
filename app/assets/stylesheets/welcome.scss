@@ -24,9 +24,26 @@
 
 .main {
   grid-column: content-start / content-end;
-  // grid-row: 2 / 3;
 
-  background-color: powderblue;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 6rem;
+  align-items: center;
+
+  &__content {
+    grid-column: 1 / 2;
+    text-align: center;
+  }
+
+  &__img {
+    grid-column: 2 / 3;
+  }
+
+  &__picture {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #e3e3e3;
+  }
 }
 
 .video {
