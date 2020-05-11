@@ -29,6 +29,21 @@
   margin-top: 4rem;
 }
 
+.heading-3--light {
+  @extend %heading;
+  font-size: 1.7rem;
+}
+
+.heading-3--light::after {
+  content: "";
+  display: block;
+  width: 20rem;
+  height: 1px;
+  background-color: $color-primary;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
 .paragraph {
   font-size: 1.8rem;
   font-weight: 300;
