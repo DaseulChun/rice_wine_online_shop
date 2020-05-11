@@ -73,9 +73,23 @@
 
 .about {
   grid-column: full-start / full-end;
+  background-color: white;
 
-  background-color: steelblue;
-  height: 500px;
+  display: grid;
+  padding: 8rem 19vw;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 6rem;
+  align-items: center;
+
+  &__picture {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #e3e3e3;
+  }
+
+  &__content {
+    text-align: center;
+  }
 }
 
 .contact {
