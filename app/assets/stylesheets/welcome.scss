@@ -1,10 +1,12 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.on-top-of-video {
+  z-index: 2;
+}
 
 .header {
   grid-column: full-start / full-end;
-  // grid-row: 1 / 2;
 
   &__hero-image {
     width: 100%;
@@ -23,9 +25,11 @@
 }
 
 .main {
-  grid-column: content-start / content-end;
+  grid-column: full-start / full-end;
+  background-color: white;
 
   display: grid;
+  padding: 8rem 19vw;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 6rem;
   align-items: center;
@@ -48,28 +52,40 @@
 
 .video {
   grid-column: full-start / full-end;
-  // grid-row: 3 / 4;
+  background-color: transparent;
+  height: 30vw;
+  width: 100%;
+  overflow: hidden;
+  
+  &__play {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    // min-height: 608px;
 
-  background-color: sandybrown;
+    height: 100%;
+    width: 177.777778vh;
+    min-width: 100%;
+    min-height: 56.25vw;
+  }
 }
 
 .about {
-  grid-column: content-start / content-end;
-  // grid-row: 4 / 5;
+  grid-column: full-start / full-end;
 
   background-color: steelblue;
+  height: 500px;
 }
 
 .contact {
   grid-column: content-start / content-end;
-  // grid-row: 5 / 6;
 
   background-color: thistle;
 }
 
 .footer {
   grid-column: full-start / full-end;
-  // grid-row: 6 / 7;
 
   background-color: tomato;
 }

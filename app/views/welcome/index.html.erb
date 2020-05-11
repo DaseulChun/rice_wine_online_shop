@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header on-top-of-video">
   <div class="header__hero-image">
     <h1 class="heading-1 mb5">
       Premium Rice Wine
@@ -6,7 +6,7 @@
     <%= link_to 'Shop Online', products_path, class: "btn" %>
   </div>
 </header>
-<section class="main">
+<section class="main on-top-of-video">
   <div class="main__content">
     <h2 class="heading-2 mb3">
       Celebrate a special day
@@ -23,14 +23,14 @@
   </div>
 </section>
 <div class="video">
-  Video
+  <%= video_tag(['rice_wine_video.mp4', 'rice_wine_video.mp4'], class: "video__play", :autoplay => true, :loop => true, :muted => true, :playsinline => true) %>
 </div>
-<section class="about">
+<section class="about on-top-of-video">
   About
 </section>
-<section class="contact">
+<section class="contact on-top-of-video">
   Contact
 </section>
-<footer class="footer">
+<footer class="footer on-top-of-video">
   Footer
 </footer>
