@@ -1,6 +1,18 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grid-container__index {
+  display: grid;
+  grid-template-rows: 93vh 100vh min-content 100vh 60vh repeat(2, min-content);
+  grid-template-columns: 
+    [full-start] minmax(6rem, 1fr) 
+    minmax(min-content, 14rem) 
+    [content-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [content-end] 
+    minmax(min-content, 14rem) 
+    minmax(6rem, 1fr) [full-end];
+}
+
 .on-top-of-video {
   z-index: 2;
 }
@@ -161,66 +173,6 @@
       background-color: $color-primary-opacity;
       border-color: $color-primary-opacity;
     }
-  }
-}
-
-.footer {
-  grid-column: full-start / full-end;
-  background-color: $color-primary;
-  color: $color-white;
-  padding: 8rem 10vw;
-
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 6vw;
-
-  .nav {
-    display: grid;
-    grid-template-columns: repeat(4, max-content);
-    column-gap: 3vw;
-    list-style: none;
-
-    &__item {
-      
-    }
-
-    &__link:link,
-    &__link:visited {
-      text-decoration: none;
-      color: $color-white;
-      text-transform: uppercase;
-      transition: all .2s;
-
-      justify-self: end;
-    }
-
-    &__link:hover {
-      color: $color-highlight;
-    }
-  }
-
-  .sns {
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
-    justify-self: end;
-    column-gap: 5vw;
-    list-style: none;
-    
-    &__icon {
-      color: $color-white;
-      font-size: 2rem;
-    }
-
-    &__icon:hover {
-      color: $color-highlight;
-    }
-  }
-
-  .copyright {
-    grid-row: 2 / 3;
-    grid-column: 1 / 3;
-    font-size: 1.8rem;
-    justify-self: center;
   }
 }
 
