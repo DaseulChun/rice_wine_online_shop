@@ -1,3 +1,31 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.sign-up {
+  height: 93vh;
+  padding-top: 10vw;
+
+  display: grid;
+  grid-template-columns: minmax(40rem, max-content);
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.simple_form.users {
+  display: grid;
+  row-gap: 1rem;
+
+  input:not([type="submit"]) {
+    border: 1px solid $color-primary-light;
+    font-family: $font-display;
+    padding: 1rem;
+    font-weight: 300;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  label {
+    font-family: $font-display;
+    font-weight: 700;
+  }
+}
