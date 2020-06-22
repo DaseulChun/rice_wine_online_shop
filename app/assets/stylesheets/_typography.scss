@@ -9,6 +9,12 @@
   color: $color-white;
 }
 
+.heading-1--dark {
+  @extend %heading;
+  font-size: 6rem;
+  color: $color-primary;
+}
+
 .heading-2 {
   @extend %heading;
   font-size: 3rem;
@@ -56,14 +62,18 @@
   line-height: 3rem;
 }
 
-.btn-white {
-  border: 1px solid $color-white;
+%btn {
   display: inline-block;
-  padding: 1.5rem 4rem;
-  color: $color-white;
   text-decoration: none;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.btn-white {
+  @extend %btn;
+  border: 1px solid $color-white;
+  padding: 1.5rem 4rem;
+  color: $color-white;
   transition: all .2s;
 
   &:hover {
@@ -73,18 +83,33 @@
 }
 
 .btn-transparent {
+  @extend %btn;
   border: 1px solid $color-primary-light;
   background-color: transparent;
   padding: 1rem;
   font-weight: 400;
   color: $color-primary;
   font-family: $font-display;
-  text-decoration: none;
-  text-transform: uppercase;
-  cursor: pointer;
   transition: all .2s;
   
   &:hover {
     border: 1px solid $color-primary;
+  }
+}
+
+.btn-primary {
+  @extend %btn;
+  border: 1px solid $color-primary;
+  background-color: transparent;
+  padding: 1rem;
+  font-weight: 400;
+  color: $color-primary;
+  font-family: $font-display;
+  transition: all .2s;
+
+  &:hover {
+    background-color: $color-primary;
+    border: 1px solid $color-primary;
+    color: $color-white;
   }
 }
