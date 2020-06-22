@@ -1,7 +1,3 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .grid-container__index {
   display: grid;
   grid-template-rows: 93vh 100vh min-content 100vh 60vh repeat(2, min-content);
@@ -176,22 +172,38 @@
   }
 }
 
+//////////////////////////////////////////////////////
+// INSTRUCTIONS PAGE
+
 .instructions {
-  display: flex;
-  height: 100vh;
-  align-items: center;
-}
+  height: 93vh;
+  
+  &__background {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba($color-primary-light, .55), rgba($color-primary-light, .55)), url(rice_wine_main_3.jpg);
+    background-size: cover;
+    background-position: center;
+  
+    display: grid;
+    row-gap: 4rem;
+    padding-left: 7vw;
+    grid-template-columns: max-content;
+    align-content: center;
+    justify-content: flex-start;
+  }
 
-.instructions-heading {
-  font-size: 7em;
-  color:#3E363F;
-}
+  &__customer,
+  &__admin {
+    & > p {
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.3em;
+    }
+  }
 
-.instructions-body {
-  font-size: 1.7em;
-  line-height: 1.2em;
-}
-
-.instructions-body div {
-  margin-bottom: 50px;
+  &__btn {
+    align-self: flex-start;
+    justify-self: flex-start;
+  }
 }
