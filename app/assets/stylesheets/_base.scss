@@ -48,11 +48,16 @@ body {
 .grid-container {
   display: grid;
   grid-template-rows: 7vh min-content;
+  grid-template-columns: 
+    [full-start] minmax(6rem, 1fr) 
+    [content-start] repeat(10, [col-start] minmax(min-content, 14rem) [col-end]) [content-end] 
+    minmax(6rem, 1fr) [full-end];
 }
 
 ////////////////////////////////////
 // NAVBAR
 .navbar {
+  grid-column: full-start / full-end;
   background-color: $color-primary;
   color: $color-white;
 
@@ -95,6 +100,7 @@ body {
 // FOOTER
 
 .footer {
+  grid-column: full-start / full-end;
   background-color: $color-primary;
   color: $color-white;
   padding: 8rem 10vw;

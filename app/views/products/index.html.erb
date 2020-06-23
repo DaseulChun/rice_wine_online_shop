@@ -1,16 +1,9 @@
 <% content_for :header do %>
-<section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Rice Wine Products
-      </h1>
-    </div>
-  </div>
-</section>
+<header class="products__intro">
+  <h1 class="title">Choose Your Rice Wine</h1>
+</header>
 <% end %>
 
-<% content_for :body_class, 'bg-light' %>
 <div class="product-index-grid pt4">
   <% @products.each do |product| %>
 
@@ -36,3 +29,4 @@
   </div>
   <% end %>
 </div>
+

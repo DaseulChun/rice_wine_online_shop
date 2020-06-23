@@ -1,7 +1,3 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .product-show {
   // .feature-image img {
   //   // width: 100%;
@@ -11,7 +7,13 @@
   }
 }
 
+.products__intro {
+  grid-column: content-start / content-end;
+}
+
 .product-index-grid {
+  grid-column: content-start / content-end;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-gap: 13px;
