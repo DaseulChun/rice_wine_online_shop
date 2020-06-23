@@ -26,6 +26,12 @@
   font-size: 3rem;
 }
 
+.heading-2--dark {
+  @extend %heading;
+  color: $color-primary;
+  font-size: 3rem;
+}
+
 .heading-3 {
   @extend %heading;
   font-size: 1.7rem;
@@ -95,6 +101,12 @@
   &:hover {
     border: 1px solid $color-primary;
   }
+}
+
+.btn-transparent--small {
+  padding: .7rem;
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .btn-primary {
