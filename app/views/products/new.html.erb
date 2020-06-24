@@ -1,15 +1,9 @@
 <% content_for :header do %>
-<section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Add a Product
-      </h1>
-    </div>
-  </div>
-</section>
+<header class="products-new__intro">
+  <h2 class="heading-2--dark">Add a Product</h2>
+</header>
 <% end %>
 
-<div class="pv4">
+<main class="products-new__form">
   <%= render 'form', product: @product %>
-</div>
+</main>

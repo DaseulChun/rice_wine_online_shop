@@ -125,3 +125,21 @@
     color: $color-white;
   }
 }
+
+.btn-dark {
+  font-family: $font-display;
+  display: inline-block;
+  text-decoration: none;
+  border: 1px solid $color-primary;
+  background-color: $color-primary;
+  color: $color-white;
+  font-size: 1.6rem;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    background-color: $color-primary-opacity;
+    border: 1px solid $color-primary-opacity;
+  }
+}
