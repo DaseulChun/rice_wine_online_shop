@@ -190,3 +190,28 @@
     display: flex;
   }
 }
+
+//////////////////////////////////////////////
+// PRODUCTS EDIT / FORM
+
+.products-edit__intro {
+  grid-column: content-start / content-end;
+  justify-self: flex-start;
+  margin: 10rem 0; 
+}
+
+.products-edit__form {
+  grid-column: content-start / content-end;
+  margin-bottom: 10rem;
+}
+
+.simple_form.edit_product {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2.5rem;
+
+  div:not(:last-child) {
+    display: flex;
+    flex-direction: column;
+  }
+}
