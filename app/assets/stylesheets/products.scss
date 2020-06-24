@@ -1,12 +1,3 @@
-.product-show {
-  // .feature-image img {
-  //   // width: 100%;
-  // }
-  .add-to-cart {
-    width: 100%;
-  }
-}
-
 //////////////////////////////////////////////
 // PRODUCTS INDEX
 
@@ -188,5 +179,66 @@
     grid-column: 1 / 9;
 
     display: flex;
+  }
+}
+
+//////////////////////////////////////////////
+// PRODUCT SHOW
+
+.product-show {
+  grid-column: content-start / content-end;
+  height: 93vh;
+
+  display: grid;
+  grid-template-columns: 50rem 70rem;
+  column-gap: 6rem;
+  justify-content: center;
+  align-content: center;
+
+  &__right-column {
+    display: grid;
+    row-gap: 6rem;
+    align-content: flex-start;
+  }
+
+  &__image {
+    width: 100%;
+    height: 60rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__description {
+
+    p {
+      margin-top: 2rem;
+      font-size: 2.3rem;
+      line-height: 1.4;
+    }
+  }
+
+  &__price-and-btn {
+    justify-self: flex-end;
+  }
+
+  &__price {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    display: flex;
+
+    &-content {
+      display: flex;
+      align-items: center;
+    }
   }
 }
