@@ -97,6 +97,31 @@ body {
   }
 }
 
+.cart {
+
+  &__text {
+    position: relative;
+  }
+
+  &__count {
+    position: absolute;
+    right: -15px;
+    top: -6px;
+
+    background-color: #bcb05e;
+    color: #4e4b42;
+    font-weight: 700;
+    font-size: 1.3rem;
+    border-radius: 50%;
+    width: 1.75rem;
+    height: 1.75rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 ////////////////////////////////////////////////
 // FOOTER
 

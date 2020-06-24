@@ -50,13 +50,13 @@
 
           <%# Link to : Shopping Cart Show Page, only available to CUSTOMER USER %>
           <% if !current_user.is_admin %>
-            <%= link_to cart_path(@current_cart), class:"navbar__item" do %>
-            <span class="icon is-small">
+            <%= link_to cart_path(@current_cart), class:"navbar__item cart" do %>
+            <span class="icon is-small mr2">
               <i class="fa fa-shopping-cart"></i>
             </span>
-            <span>Cart
-              <%= count_cart_item_totals %>
-              </span>
+            <span class="cart__text">Cart
+              <span class="cart__count"><%= count_cart_item_totals %></span>
+            </span>
             <% end %>
           <% end %>
           
