@@ -41,7 +41,7 @@
 
       <div class="navbar__list">
         <%= link_to "Instructions", "/instructions", class:"navbar__item" %>
-        <%= link_to "Contact", products_path, class:"navbar__item" %>
+        <%= link_to "Shop", products_path, class:"navbar__item" %>
         <% if user_signed_in? %>
           <%# Link to : Add Product, only available to ADMIN USER %>
           <% if current_user.is_admin %>
