@@ -1,27 +1,14 @@
-<div class="columns align-items-center">
-  <div class="column is-1">
-    <%= line_item.quantity %>
-  </div>
-  <div class="column is-2">
-    <figure class="is-128x128 image">
-      <%= image_tag(line_item.product.image) %>
-    </figure>
-  </div>
-  <div class="column is-9">
-    <strong><%= line_item.product.title %></strong>
-    <div class="columns align-items-center">
-      <div class="content column is-9">
-        <%= truncate(line_item.product.description, length: 140) %>
-      </div>
-      <div class="column is-3 has-text-right">
-        <strong class="f4"><%= number_to_currency(line_item.total_price) %></strong>
-      </div>
-    </div>
-  </div>
-</div>
+<%# Cart Items %>
+<figure class="carts-left-items__image">
+  <%= image_tag(line_item.product.image) %>
+</figure>
 
-<div class="has-text-right">
-  <%= link_to 'Remove Item', line_item_path(line_item), method: :delete, data: { confirm: "Are you sure? " }, class: "button is-small mb4" %>
-</div>
+<%= link_to line_item.product.title, product_path(line_item.product), class: "carts-left-items__name" %>
 
-<hr/ >
+<p><%= line_item.quantity %></p>
+
+<p><%= line_item.product.price %></p>
+
+<p class="carts-left-items__total-price"><%= number_to_currency(line_item.total_price) %></p>
+
+<%= link_to 'Remove', line_item_path(line_item), method: :delete, data: { confirm: "Are you sure? " }, class: "btn-transparent carts-left-items__remove-btn" %>
