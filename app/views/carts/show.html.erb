@@ -38,6 +38,13 @@
 
         <%# Cart Items %>
         <%= render(@cart.line_items) %>
+
+
+        <%# Bottom Part %>
+        <div class="carts-left-bottom">
+          <%= link_to 'Continue Shopping', products_path, class: 'carts-left-bottom__continue-link' %>
+        </div>
+        
       </div>
 
       <%# Right Column %>
@@ -83,10 +90,6 @@
 
       </div>
 
-      <%# Bottom Part %>
-      <div class="carts-left-bottom">
-        <%= link_to 'Continue Shopping', products_path, class: 'carts-left-bottom__continue-link' %>
-      </div>
 
     </div>
 
@@ -136,5 +139,5 @@
     </footer>
 
   </div>
-  
+
 </div>
