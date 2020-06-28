@@ -157,7 +157,8 @@
 // Payment Modal
 //////////////////////////////////////
 
-.modal, .modal-background {
+.modal, 
+.modal-background {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -165,9 +166,11 @@
   top: 0;
 }
 
-.modal {
-  grid-column: full-start / full-end;
+.modal-background {
+  background-color: rgba(10, 10, 10, 0.86);
+}
 
+.modal {
   align-items: center;
   display: none;
   flex-direction: column;
@@ -175,10 +178,6 @@
   overflow: hidden;
   position: fixed;
   z-index: 40;
-}
-
-.modal-background {
-  background-color: rgba(10, 10, 10, 0.86);
 }
 
 .modal-card {
@@ -189,7 +188,8 @@
 }
 
 @media screen and (min-width: 769px) {
-  .modal-content, .modal-card {
+  .modal-content, 
+  .modal-card {
       margin: 0 auto;
       max-height: calc(100vh - 40px);
       width: 640px;
@@ -202,7 +202,8 @@
   border-top-right-radius: 6px;
 }
 
-.modal-card-head, .modal-card-foot {
+.modal-card-head, 
+.modal-card-foot {
   align-items: center;
   background-color: whitesmoke;
   display: flex;
@@ -213,14 +214,16 @@
 }
 
 .modal-card-title {
-  color: #363636;
+  color: $color-primary;
+
   flex-grow: 1;
   flex-shrink: 0;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 400;
   line-height: 1;
 }
 
-.delete, .modal-close {
+.delete {
   -moz-appearance: none;
   -webkit-appearance: none;
   background-color: rgba(10, 10, 10, 0.2);
@@ -243,21 +246,45 @@
   width: 20px;
 }
 
+.delete::before, 
+.delete::after {
+  background-color: $color-white;
+  content: "";
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform-origin: center center;
+}
+
+.delete::before {
+  height: 2px;
+  width: 50%;
+}
+
+.delete::after {
+  height: 50%;
+  width: 2px;
+}
+
+.delete:hover, 
+.delete:focus {
+  background-color: rgba(10, 10, 10, 0.3);
+}
+
 .modal-card-body {
   -webkit-overflow-scrolling: touch;
-  background-color: white;
+  background-color: $color-white;
   flex-grow: 1;
   flex-shrink: 1;
   overflow: auto;
   padding: 20px;
+  position: relative;
 }
 
 .modal-card-foot {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   border-top: 1px solid #dbdbdb;
-}
-
-.modal-card-foot .button:not(:last-child) {
-  margin-right: 0.5em;
 }
