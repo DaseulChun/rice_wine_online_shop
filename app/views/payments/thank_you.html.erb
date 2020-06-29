@@ -1,12 +1,10 @@
-<div class="thank-you-container">
-  <h1 class="thank-you-heading">Thank You</h1>
-  <div class="thank-you-body">
+<div class="thank-you">
+  <h1 class="thank-you__heading">Thank You</h1>
+  <div class="thank-you__body">
     <p>Thank you for Shopping at letsdrink.com!
     </p>
     <p>Your Rice Wine has been purchased. You will receive an e-mail confirmation shortly.
     </p>
   </div>
-  <%= link_to 'Continue Shopping', products_path , class: "button is-primary is-outlined" %>
+  <%= link_to 'Continue Shopping', products_path , class: "btn-primary thank-you__btn" %>
 </div>
-
-<%= image_tag "rice_wine_main_3.jpg", alt: "thank you image", id: "thank-you" %>
