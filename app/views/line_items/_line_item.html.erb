@@ -7,7 +7,7 @@
 
 <p><%= line_item.quantity %></p>
 
-<p><%= line_item.product.price %></p>
+<p><%= number_to_currency(line_item.product.price) %></p>
 
 <p class="carts-left-items__total-price"><%= number_to_currency(line_item.total_price) %></p>
 
