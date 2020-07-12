@@ -1,5 +1,5 @@
 // COLOR VARIABLES
-$primary: #3E363F;
+$primary: #3e363f;
 $link: #444;
 $link-hover: #222;
 
@@ -9,7 +9,7 @@ $color-primary: #4e4b42;
 $color-primary-opacity: #4e4b42dc;
 $color-primary-light: #d8d7ca;
 $color-highlight: #bcb05e;
-$color-highlight-light:#bfa760;
+$color-highlight-light: #bfa760;
 
 // FONTS
 $font-primary: 'Cinzel', serif;
@@ -50,9 +50,13 @@ body {
 .grid-container {
   display: grid;
   grid-template-rows: 7vh min-content;
-  grid-template-columns: 
-    [full-start] minmax(6rem, 1fr) 
-    [content-start] repeat(10, [col-start] minmax(min-content, 14rem) [col-end]) [content-end] 
+  grid-template-columns:
+    [full-start] minmax(6rem, 1fr)
+    [content-start] repeat(
+      10,
+      [col-start] minmax(min-content, 14rem) [col-end]
+    )
+    [content-end]
     minmax(6rem, 1fr) [full-end];
 }
 
@@ -72,15 +76,21 @@ body {
     margin-right: auto;
   }
 
+  &__logo {
+    height: 60px;
+    width: 250px;
+    margin-left: 10px;
+  }
+
   &__list {
     align-self: stretch;
 
     display: flex;
   }
-  
+
   &__item {
     padding: 0 1.5rem;
-    transition: all .2s;
+    transition: all 0.2s;
     display: flex;
     align-items: center;
 
@@ -90,7 +100,7 @@ body {
       color: $color-white;
       text-transform: uppercase;
     }
-    
+
     &:hover {
       background-color: $color-primary-light;
       color: $color-primary;
@@ -99,7 +109,6 @@ body {
 }
 
 .cart {
-
   &__text {
     position: relative;
   }
@@ -147,7 +156,7 @@ body {
       text-decoration: none;
       color: $color-white;
       text-transform: uppercase;
-      transition: all .2s;
+      transition: all 0.2s;
 
       justify-self: end;
     }
@@ -163,7 +172,7 @@ body {
     justify-self: end;
     column-gap: 5vw;
     list-style: none;
-    
+
     &__icon {
       color: $color-white;
       font-size: 2rem;

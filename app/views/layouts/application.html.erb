@@ -35,7 +35,9 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar__brand">
         <%= link_to root_path, class:"navbar__logo" do %>
-          <h1 class="title white is-5">Let's Drink!</h1>
+          <%# <h1 class="title white is-5">Let's Drink!</h1> %>
+
+          <%= image_tag "rice_wine_logo_5.png", alt: "rice wine logo", class: "navbar__logo" %>
         <% end  %>
       </div>
 
