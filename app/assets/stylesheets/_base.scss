@@ -20,6 +20,7 @@ $bp-largest: 81.25em;      // 1300px
 $bp-large: 62.5em;         // 1000px
 $bp-medium: 50em;          // 800px
 $bp-small: 37.5em;         // 600px
+$bp-smallest: 25em;        // 400px
 
 .title.white {
   color: white;
@@ -80,6 +81,12 @@ body {
   grid-column: full-start / full-end;
   background-color: $color-primary;
   color: $color-white;
+
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // z-index: 5;
 
   z-index: 2;
 
@@ -186,11 +193,25 @@ body {
   grid-template-columns: repeat(2, 1fr);
   row-gap: 6vw;
 
+  @media only screen and (max-width: $bp-smallest) {
+    padding: 5rem 5vw;
+  }
+
   .nav {
     display: grid;
     grid-template-columns: repeat(4, max-content);
-    column-gap: 3vw;
+    gap: 3vw;
     list-style: none;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / 3;
+      justify-content: center;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      grid-template-columns: max-content;
+      justify-items: center;
+    }
 
     &__link:link,
     &__link:visited {
@@ -213,6 +234,11 @@ body {
     justify-self: end;
     column-gap: 5vw;
     list-style: none;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / 3;
+      justify-self: center;
+    }
 
     &__icon {
       color: $color-white;

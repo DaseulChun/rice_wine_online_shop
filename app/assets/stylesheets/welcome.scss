@@ -3,6 +3,10 @@
 
   display: grid;
   grid-template-rows: 93vh 100vh min-content 100vh repeat(2, min-content);
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-rows: 93vh min-content
+  }
 }
 
 .on-top-of-video {
@@ -19,6 +23,7 @@
     object-fit: cover;
     background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('hero.jpeg');
     background-attachment: fixed;
+    text-align: center;
 
     display: flex;
     flex-direction: column;
@@ -38,6 +43,10 @@
 
   @media only screen and (max-width: $bp-largest) {
     padding: 15rem 10vw;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 8rem 5vw;
   }
 
   &__content {
@@ -105,6 +114,10 @@
     padding: 15rem 10vw;
   }
 
+  @media only screen and (max-width: $bp-small) {
+    padding: 8rem 5vw;
+  }
+  
   &__img {
 
     @media only screen and (max-width: $bp-medium) {
@@ -142,6 +155,10 @@
   @media only screen and (max-width: $bp-large) {
     padding: 6rem;
     gap: 4rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 3rem;
   }
 
   &__map {
@@ -190,9 +207,22 @@
       width: 100%;
     }
 
+    .name,
+    .email,
+    .subject {
+      @media only screen and (max-width: $bp-small) {
+        grid-column: 1 / 3;
+      }
+    }
+
     .message {
       grid-row: 1 / 4;
       grid-column: 2 / 3;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-row: 4 / 5;
+        grid-column: 1 / 3;
+      }
     }
 
     input,
@@ -217,6 +247,10 @@
       color: $color-white;
       cursor: pointer;
       transition: all .2s;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-row: 5 / 6;
+      }
     }
 
     .submit:hover {
