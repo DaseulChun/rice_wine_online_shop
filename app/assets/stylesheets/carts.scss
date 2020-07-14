@@ -187,14 +187,14 @@
   overflow: hidden;
 }
 
-@media screen and (min-width: 769px) {
-  .modal-content, 
-  .modal-card {
-      margin: 0 auto;
-      max-height: calc(100vh - 40px);
-      width: 640px;
-  }
-}
+// @media screen and (min-width: 769px) {
+//   .modal-content, 
+//   .modal-card {
+//       margin: 0 auto;
+//       max-height: calc(100vh - 40px);
+//       width: 640px;
+//   }
+// }
 
 .modal-card-head {
   border-bottom: 1px solid #dbdbdb;

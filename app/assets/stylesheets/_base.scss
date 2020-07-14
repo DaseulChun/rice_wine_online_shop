@@ -15,6 +15,12 @@ $color-highlight-light: #bfa760;
 $font-primary: 'Cinzel', serif;
 $font-display: 'Lato', sans-serif;
 
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 81.25em;      // 1300px
+$bp-large: 62.5em;         // 1000px
+$bp-medium: 50em;          // 800px
+$bp-small: 37.5em;         // 600px
+
 .title.white {
   color: white;
 }
@@ -38,6 +44,14 @@ $font-display: 'Lato', sans-serif;
 html {
   font-size: 62.5%; // 1rem = 10px
   box-sizing: border-box;
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%; // 1rem = 8px
+  }
 }
 
 body {
@@ -86,6 +100,10 @@ body {
     align-self: stretch;
 
     display: flex;
+
+    @media only screen and (max-width: $bp-medium) {
+      display: none;
+    }
   }
 
   &__item {
@@ -104,6 +122,29 @@ body {
     &:hover {
       background-color: $color-primary-light;
       color: $color-primary;
+    }
+  }
+
+  &__menu-btn {
+    display: none;
+
+    @media only screen and (max-width: $bp-medium) {
+      display: flex;
+      width: 3rem;
+      height: 3rem;
+      background: transparent;
+      border: none;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-right: 2rem;
+      cursor: pointer;
+    }
+
+    span {
+      display: block;
+      width: 3rem;
+      height: 2.5px;
+      background: $color-white;
     }
   }
 }
