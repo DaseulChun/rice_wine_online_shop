@@ -10,3 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.display = 'none';
   }
 })
+
+// const openDrawer = () => {
+//   document.getElementById('drawer').classList.add('is-active', 'is-visible');
+// } 
+
+// const closeDrawer = () => {
+//   document.getElementById('drawer').classList.remove('is-active', 'is-visible');
+// } 

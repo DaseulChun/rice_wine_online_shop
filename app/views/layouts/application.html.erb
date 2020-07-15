@@ -69,12 +69,34 @@
         <% end %>
       </div>
 
-      <button class="navbar__menu-btn">
+      <button class="navbar__menu-btn" onclick="openDrawer()">
         <span></span>
         <span></span>
         <span></span>
       </button>
     </nav>
+
+    <%# <aside class="drawer" id="drawer">
+      <div class="drawer__overlay"></div>
+      <div class="drawer__wrapper">
+        <div class="drawer__header">
+          <h4 class="drawer__title">Hello There!</h4>
+          <button class="drawer__close" onclick="closeDrawer()">X</button>
+        </div>
+        <div class="drawer__content">
+          <p>Test1</p>
+          <p>Test2</p>
+          <p>Test1</p>
+          <p>Test2</p>
+          <p>Test1</p>
+          <p>Test2</p>
+          <p>Test1</p>
+          <p>Test2</p>
+          <p>Test1</p>
+          <p>Test2</p>
+        </div>
+      </div>
+    </aside> %>
 
     <%= yield(:header) %>
 
