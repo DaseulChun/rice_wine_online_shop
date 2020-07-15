@@ -64,7 +64,6 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-rows: 7vh min-content;
   grid-template-columns:
     [full-start] minmax(6rem, 1fr)
     [content-start] repeat(
@@ -82,13 +81,12 @@ body {
   background-color: $color-primary;
   color: $color-white;
 
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // z-index: 5;
-
-  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7vh;
+  z-index: 5;
 
   display: flex;
   align-items: center;
@@ -154,6 +152,14 @@ body {
       background: $color-white;
     }
   }
+}
+
+/* To occupy space for fixed navbar */
+.navbar-shadow {
+  grid-column: full-start / full-end;
+  width: 100%;
+  height: 7vh;
+  background-color: transparent;
 }
 
 .cart {

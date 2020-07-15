@@ -2,7 +2,7 @@
   grid-column: full-start / full-end;
 
   display: grid;
-  grid-template-rows: 93vh 100vh min-content 100vh repeat(2, min-content);
+  grid-template-rows: 93vh 93vh min-content 93vh repeat(2, min-content);
 
   @media only screen and (max-width: $bp-small) {
     grid-template-rows: 93vh min-content
@@ -33,7 +33,7 @@
 }
 
 .main {
-  background-color: white;
+  background-color: $color-white;
 
   display: grid;
   padding: 15rem 19vw;
