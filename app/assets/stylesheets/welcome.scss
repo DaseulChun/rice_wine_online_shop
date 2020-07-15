@@ -277,6 +277,13 @@
   align-content: center;
   justify-content: flex-start;
 
+  @media only screen and (max-width: $bp-small) {
+    padding-left: 0;
+    grid-template-columns: minmax(85%, min-content);
+    justify-content: center;
+    text-align: center;
+  }
+
   &__customer,
   &__admin {
     & > p {
@@ -289,5 +296,11 @@
   &__btn {
     align-self: flex-start;
     justify-self: flex-start;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 80%;
+      text-align: center;
+      justify-self: center;
+    }
   }
 }
