@@ -215,20 +215,44 @@
   height: 93vh;
 
   display: grid;
-  grid-template-columns: 50rem 70rem;
-  column-gap: 6rem;
+  grid-template-columns: 5fr 7fr;
+  gap: 6rem;
   justify-content: center;
   align-content: center;
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: 1fr;
+    height: auto;
+
+    margin: 8rem 0;
+    gap: 4rem;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 400;
+  }
 
   &__right-column {
     display: grid;
     row-gap: 6rem;
     align-content: flex-start;
+
+    @media only screen and (max-width: $bp-small) {
+      justify-items: center;
+      row-gap: 4rem;
+    }
   }
 
   &__image {
     width: 100%;
     height: 60rem;
+
+    @media only screen and (max-width: $bp-small) {
+      height: 82.20vw;
+      width: 80%;
+      justify-self: center;
+    }
 
     img {
       width: 100%;
@@ -239,6 +263,10 @@
 
   &__description {
 
+    @media only screen and (max-width: $bp-small) {
+      text-align: center;
+    }
+
     p {
       margin-top: 2rem;
       font-size: 2.3rem;
@@ -248,6 +276,10 @@
 
   &__price-and-btn {
     justify-self: flex-end;
+
+    @media only screen and (max-width: $bp-small) {
+      justify-self: center;
+    }
   }
 
   &__price {
@@ -256,6 +288,10 @@
 
     display: flex;
     justify-content: flex-end;
+
+    @media only screen and (max-width: $bp-small) {
+      justify-content: center;
+    }
   }
 
   &__btn {
