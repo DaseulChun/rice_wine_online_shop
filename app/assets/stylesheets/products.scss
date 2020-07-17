@@ -110,11 +110,20 @@
   grid-column: content-start / content-end;
   justify-self: flex-start;
   margin: 10rem 0; 
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 8rem 0; 
+  }
 }
 
 .products-new__form {
   grid-column: content-start / content-end;
+  min-height: 65vh;
   margin-bottom: 10rem;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 8rem; 
+  }
 }
 
 .simple_form.new_product {
@@ -162,21 +171,46 @@
   &--title {
     grid-column: 1 / 7;
     grid-row: 1 / 2;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 9;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / -1;
+    }
   }
 
   &--price {
     grid-column: 7 / span 2;
     grid-row: 1 / 2;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 9 / span 4;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
   }
 
   &--description {
     grid-column: 1 / 9;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+    }
   }
 
   &--file {
     grid-column: 1 / 9;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid $color-light-grey;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+    }
 
     .file__label {
       position: relative;
@@ -207,6 +241,17 @@
     grid-column: 1 / 9;
 
     display: flex;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / -1;
+      width: 100%;
+
+      & > * {
+        width: 50%;
+        text-align: center;
+      }
+    }
+
   }
 }
 
@@ -217,11 +262,20 @@
   grid-column: content-start / content-end;
   justify-self: flex-start;
   margin: 10rem 0; 
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 8rem 0; 
+  }
 }
 
 .products-edit__form {
   grid-column: content-start / content-end;
+  min-height: 65vh;
   margin-bottom: 10rem;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 8rem; 
+  }
 }
 
 .simple_form.edit_product {
