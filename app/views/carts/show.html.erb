@@ -35,6 +35,15 @@
           <p>&nbsp;</p>
         </div>
       
+        <div class="carts-left-heading__tab-view">
+          <p>Product</p>
+        </div>
+        <div class="carts-left-heading__tab-view">
+          <p>&nbsp;</p>
+        </div>
+        <div class="carts-left-heading__tab-view carts-left-heading__tab-view--quantity-and-price">
+          <p>Quantity / Price</p>
+        </div>
 
         <%# Cart Items %>
         <%= render(@cart.line_items) %>
@@ -85,6 +94,11 @@
               <span><i class="fa fa-credit-card-alt mr2" aria-hidden="true"></i></span>
               <span>Check Out</span>
             <% end %>
+          </div>
+
+          <%# Bottom Part %>
+          <div class="carts-right-bottom">
+            <%= link_to 'Continue Shopping', products_path, class: 'carts-right-bottom__continue-link' %>
           </div>
         </div>
 

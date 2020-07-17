@@ -63,3 +63,16 @@
 .drawer.is-visible .drawer__wrapper {
   transform: translateX(0);
 }
+
+<%# Cart Items / tab-view %>
+<figure class="carts-left-items__image tab-view">
+  <%= image_tag(line_item.product.image) %>
+</figure>
+
+<%= link_to line_item.product.title, product_path(line_item.product), class: "carts-left-items__name tab-view" %>
+
+<p class="carts-left-items__quantity tab-view"><%= line_item.quantity %></p>
+
+<p class="carts-left-items__total-price tab-view"><%= number_to_currency(line_item.total_price) %></p>
+
+<%= link_to 'Remove', line_item_path(line_item), method: :delete, data: { confirm: "Are you sure? " }, class: "btn-transparent carts-left-items__remove-btn tab-view" %>
