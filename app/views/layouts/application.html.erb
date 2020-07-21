@@ -69,35 +69,62 @@
         <% end %>
       </div>
 
-      <button class="navbar__menu-btn" onclick="openDrawer()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <!-- Hamburger menu for smaller viewport ( < 800px)-->
+      <div class="navbar__tab-view">
+        <% if user_signed_in? %>
+          <% if !current_user.is_admin %>
+            <%= link_to cart_path(@current_cart), class:"cart" do %>
+            <span class="icon is-small mr2">
+              <i class="fa fa-shopping-cart"></i>
+            </span>
+            <span class="cart__text">Cart
+              <span class="cart__count"><%= count_cart_item_totals %></span>
+            </span>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <button class="navbar__menu-btn" onclick="toggleDrawer()">
+          <span id="diagonal-1"></span>
+          <span id="horizontal"></span>
+          <span id="diagonal-2"></span>
+        </button>
+      </div>
     </nav>
 
     <div class="navbar-shadow">&nbsp;</div>
-    <%# <aside class="drawer" id="drawer">
+
+    <aside class="drawer" id="drawer">
       <div class="drawer__overlay"></div>
       <div class="drawer__wrapper">
         <div class="drawer__header">
-          <h4 class="drawer__title">Hello There!</h4>
-          <button class="drawer__close" onclick="closeDrawer()">X</button>
+
+          <% if user_signed_in? %>
+            <p class="drawer__title">Hello, <%= current_user.full_name %></p>
+            <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"drawer__signout-btn" %>
+          <% else %>
+            <p class="drawer__title">Hello Guest!</p>
+          <% end %>
         </div>
+
         <div class="drawer__content">
-          <p>Test1</p>
-          <p>Test2</p>
-          <p>Test1</p>
-          <p>Test2</p>
-          <p>Test1</p>
-          <p>Test2</p>
-          <p>Test1</p>
-          <p>Test2</p>
-          <p>Test1</p>
-          <p>Test2</p>
+          <%= link_to "Instructions", "/instructions", class:"drawer__content-item" %>
+          <%= link_to "Shop", products_path, class:"drawer__content-item" %>
+          <% if user_signed_in? %>
+            <%# Link to : Add Product, only available to ADMIN USER %>
+            <% if current_user.is_admin %>
+              <%= link_to "Add Product", new_product_path, class:"drawer__content-item" %>
+            <% end %>
+            
+          <% else %>
+            <%= link_to "Sign In", new_session_path, class:"drawer__content-item" %>
+            <%= link_to "Sign Up", new_user_path, class:"drawer__content-item"%>
+          <% end %>
         </div>
+
+        
       </div>
-    </aside> %>
+    </aside>
 
     <%= yield(:header) %>
 

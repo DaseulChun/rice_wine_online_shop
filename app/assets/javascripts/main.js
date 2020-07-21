@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })
 
-// const openDrawer = () => {
-//   document.getElementById('drawer').classList.add('is-active', 'is-visible');
-// } 
+const toggleDrawer = () => {
+  document.getElementById('drawer').classList.toggle('is-visible');
 
-// const closeDrawer = () => {
-//   document.getElementById('drawer').classList.remove('is-active', 'is-visible');
-// } 
+  document.getElementById('diagonal-1').classList.toggle('is-open');
+  document.getElementById('horizontal').classList.toggle('is-open');
+  document.getElementById('diagonal-2').classList.toggle('is-open');
+} 

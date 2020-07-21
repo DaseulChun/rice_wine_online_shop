@@ -145,26 +145,45 @@ body {
     }
   }
 
-  &__menu-btn {
+  &__tab-view {
     display: none;
 
     @media only screen and (max-width: $bp-medium) {
       display: flex;
-      width: 3rem;
-      height: 3rem;
-      background: transparent;
-      border: none;
-      flex-direction: column;
-      justify-content: space-around;
-      margin-right: 2rem;
       cursor: pointer;
     }
+  }
+
+  &__menu-btn {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    background: transparent;
+    border: none;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 2rem;
+    cursor: pointer;
 
     span {
       display: block;
       width: 3rem;
       height: 2.5px;
       background: $color-white;
+
+      transition: all 0.3s;
+    }
+
+    #horizontal.is-open {
+      opacity: 0;
+    }
+
+    #diagonal-1.is-open {
+      transform: rotate(135deg);
+    }
+
+    #diagonal-2.is-open {
+      transform: rotate(-135deg);
     }
   }
 }
@@ -178,14 +197,24 @@ body {
 }
 
 .cart {
+
+  @media only screen and (max-width: $bp-medium) {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 3rem;
+
+    display: flex;
+    align-items: center;
+  }
+
   &__text {
     position: relative;
   }
 
   &__count {
     position: absolute;
-    right: -15px;
-    top: -6px;
+    right: -1.5rem;
+    top: -0.6rem;
 
     background-color: $color-highlight;
     color: $color-primary;
@@ -199,6 +228,82 @@ body {
     align-items: center;
     justify-content: center;
   }
+}
+
+.drawer {
+
+  &__overlay {
+    position: fixed;
+    top: 7vh;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-color: #000;
+  }
+
+  &__wrapper {
+    position: fixed;
+    top: 7vh;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    z-index: 9999;
+    overflow: auto;
+    transform: translateX(103%);
+    transition: transform 0.3s ease-in-out;
+    background-color: $color-primary;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    padding: 4rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 3rem;
+    color: $color-white;
+  }
+
+  &__signout-btn {
+    text-decoration: none;
+    color: $color-white;
+    font-size: 2rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    padding: 4rem;
+    font-size: 2rem;
+  }
+
+  &__content-item {
+    text-decoration: none;
+    color: $color-white;
+    margin-bottom: 2rem;
+  }
+}
+
+.drawer.is-visible .drawer__overlay {
+  opacity: 0.5;
+  z-index: 200;
+}
+
+.drawer.is-visible .drawer__wrapper {
+  transform: translateX(0%);
 }
 
 ////////////////////////////////////////////////
