@@ -180,10 +180,14 @@ body {
 
     #diagonal-1.is-open {
       transform: rotate(135deg);
+      position: absolute;
+      top: 50%;
     }
 
     #diagonal-2.is-open {
       transform: rotate(-135deg);
+      position: absolute;
+      top: 50%;
     }
   }
 }
@@ -267,19 +271,19 @@ body {
     padding: 4rem;
 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
   }
 
   &__title {
-    font-size: 3rem;
+    font-size: 4rem;
     color: $color-white;
+    margin-bottom: 2rem;
   }
 
   &__signout-btn {
     text-decoration: none;
     color: $color-white;
-    font-size: 2rem;
+    font-size: 3rem;
   }
 
   &__content {
@@ -287,7 +291,7 @@ body {
     flex-direction: column;
 
     padding: 4rem;
-    font-size: 2rem;
+    font-size: 3.5rem;
   }
 
   &__content-item {
