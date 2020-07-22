@@ -315,6 +315,7 @@
 
 .modal-background {
   background-color: rgba(10, 10, 10, 0.86);
+  z-index: 60;
 }
 
 .modal {
@@ -334,6 +335,7 @@
   overflow: hidden;
   margin: 0 auto;
   width: 640px;
+  z-index: 70;
 
   @media only screen and (max-width: $bp-medium) {
     width: 80vw;
