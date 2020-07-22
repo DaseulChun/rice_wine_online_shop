@@ -18,3 +18,15 @@ const toggleDrawer = () => {
   document.getElementById('horizontal').classList.toggle('is-open');
   document.getElementById('diagonal-2').classList.toggle('is-open');
 } 
+
+
+const changeLogo = () => {  
+  const logoImage = document.querySelector('.navbar__logo-image');
+  
+  if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+    logoImage.classList.add('navbar__logo-image--scroll-down');
+  } else {
+    logoImage.classList.remove('navbar__logo-image--scroll-down');
+  }
+}
+window.onscroll = changeLogo;

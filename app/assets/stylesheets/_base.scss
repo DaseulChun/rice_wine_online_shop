@@ -107,12 +107,23 @@ body {
 
   &__brand {
     margin-right: auto;
+    height: 100%;
   }
 
-  &__logo {
-    height: 60px;
-    width: 250px;
-    margin-left: 10px;
+  &__logo-image {
+    height: 100%;
+
+    transform: scale(1.5) translateX(4.2rem) translateY(1.5rem);
+    transition: all 0.3s;
+
+    @media only screen and (max-width: $bp-medium) {
+      transform: scale(1) translateX(0px) translateY(0px);
+    }
+  }
+
+  &__logo-image--scroll-down {
+    transform: scale(1) translateX(0px) translateY(0px);
+    transition: all 0.3s;
   }
 
   &__list {
