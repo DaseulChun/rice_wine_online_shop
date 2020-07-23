@@ -1,12 +1,387 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//////////////////////////////////////////////
+// PRODUCTS INDEX
+
+.products__intro {
+  grid-column: content-start / content-end;
+  justify-self: center;
+  margin: 10rem 0; 
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 8rem 0; 
+  }
+}
+
+.products {
+  grid-column: content-start / content-end;
+  margin-bottom: 15rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-gap: 13px;
+
+  @media only screen and (max-width: $bp-large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 8rem;
+  }
+}
+
+.product {
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: min-content 1fr 1fr;
+  row-gap: 1rem;
+
+  &__thumb {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+
+    width: 100%;
+    height: 20vw;
+
+    @media only screen and (max-width: $bp-largest) {
+      height: 25vw;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      height: 30vw;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      height: 35vw;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all .2s;
+
+      &:hover {
+        opacity: .9;
+      }
+    }
+  }
+
+  &__title {
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    padding: 0 1.3rem;
+
+    a {
+      font-size: 2.3rem;
+      text-decoration: none;
+      color: $color-primary;
+      font-weight: 300;
+    }
+  }
+
+  &__admin-btn {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+
+    align-self: center;
+    padding-left: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  &__price {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+
+    justify-self: flex-end;
+    align-self: center;
+    padding-right: 1.3rem;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+}
+
+//////////////////////////////////////////////
+// PRODUCTS NEW / FORM
+
+.products-new__intro {
+  grid-column: content-start / content-end;
+  justify-self: flex-start;
+  margin: 10rem 0; 
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 8rem 0; 
+  }
+}
+
+.products-new__form {
+  grid-column: content-start / content-end;
+  min-height: 65vh;
+  margin-bottom: 10rem;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 8rem; 
+  }
+}
+
+.simple_form.new_product {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2.5rem;
+
+  div:not(:last-child) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.form__group {
+
+  & input:not([type="submit"]),
+  label,
+  textarea {
+    display: inline-block;
+    height: 3.5rem;
+    font-weight: 500;
+    font-size: 2rem;
+    font-family: $font-display;
+  }
+
+  & input:not([type="submit"]) {
+    padding: 7px 10px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  & textarea {
+    height: 20rem;
+    padding: 10px;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary;
+    }
+  }
+
+  &--title {
+    grid-column: 1 / 7;
+    grid-row: 1 / 2;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 9;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &--price {
+    grid-column: 7 / span 2;
+    grid-row: 1 / 2;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 9 / span 4;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+    }
+  }
+
+  &--description {
+    grid-column: 1 / 9;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &--file {
+    grid-column: 1 / 9;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid $color-light-grey;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / -1;
+    }
+
+    .file__label {
+      position: relative;
+      align-self: flex-start;
+    }
+
+    input.file__input {
+      width: 100%;
+      font-size: 1rem;
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .file__cta {
+      background-color: $color-primary-light;
+      color: $color-primary;
+      font-size: 1.6rem;
+      padding: 1rem 1.7rem;
+    }
+
+    .file__icon {
+      margin-right: 1rem;
+    }
+  }
+
+  &--btn {
+    grid-column: 1 / 9;
+
+    display: flex;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: 1 / -1;
+      width: 100%;
+
+      & > * {
+        width: 50%;
+        text-align: center;
+      }
+    }
+
+  }
+}
+
+/////////////////////////////////////////////////
+// PRODUCTS EDIT / FORM
+
+.products-edit__intro {
+  grid-column: content-start / content-end;
+  justify-self: flex-start;
+  margin: 10rem 0; 
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 8rem 0; 
+  }
+}
+
+.products-edit__form {
+  grid-column: content-start / content-end;
+  min-height: 65vh;
+  margin-bottom: 10rem;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 8rem; 
+  }
+}
+
+.simple_form.edit_product {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2.5rem;
+
+  div:not(:last-child) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+//////////////////////////////////////////////
+// PRODUCT SHOW
 
 .product-show {
-  .feature-image img {
-    // width: 100%;
+  grid-column: content-start / content-end;
+  height: 93vh;
+
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 6rem;
+  justify-content: center;
+  align-content: center;
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: 1fr;
+    height: auto;
+
+    margin: 8rem 0;
+    gap: 4rem;
   }
-  .add-to-cart {
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 400;
+  }
+
+  &__right-column {
+    display: grid;
+    row-gap: 6rem;
+    align-content: flex-start;
+
+    @media only screen and (max-width: $bp-small) {
+      justify-items: center;
+      row-gap: 4rem;
+    }
+  }
+
+  &__image {
     width: 100%;
+    height: 60rem;
+
+    @media only screen and (max-width: $bp-small) {
+      height: 82.20vw;
+      width: 80%;
+      justify-self: center;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__description {
+
+    @media only screen and (max-width: $bp-small) {
+      text-align: center;
+    }
+
+    p {
+      margin-top: 2rem;
+      font-size: 2.3rem;
+      line-height: 1.4;
+    }
+  }
+
+  &__price-and-btn {
+    justify-self: flex-end;
+
+    @media only screen and (max-width: $bp-small) {
+      justify-self: center;
+    }
+  }
+
+  &__price {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-content: flex-end;
+
+    @media only screen and (max-width: $bp-small) {
+      justify-content: center;
+    }
+  }
+
+  &__btn {
+    display: flex;
+
+    &-content {
+      display: flex;
+      align-items: center;
+    }
   }
 }

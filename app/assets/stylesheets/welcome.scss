@@ -1,3 +1,306 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.grid-container__index {
+  grid-column: full-start / full-end;
+
+  display: grid;
+  grid-template-rows: 93vh 93vh min-content 93vh repeat(2, min-content);
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-rows: 93vh min-content
+  }
+}
+
+.on-top-of-video {
+  z-index: 2;
+}
+
+.header {
+
+  &__hero-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('hero.jpeg');
+    background-attachment: fixed;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.main {
+  background-color: $color-white;
+
+  display: grid;
+  padding: 15rem 19vw;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+  align-items: center;
+
+  @media only screen and (max-width: $bp-largest) {
+    padding: 15rem 10vw;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 8rem 5vw;
+  }
+
+  &__content {
+    grid-column: 1 / 2;
+    text-align: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__img {
+    grid-column: 2 / 3;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 3;
+      justify-self: center;
+      width: 60%;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #e3e3e3;
+  }
+}
+
+.video {
+  background-color: transparent;
+  height: 30vw;
+  width: 100%;
+  overflow: hidden;
+  
+  &__play {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    // min-height: 608px;
+
+    // height: 100%;
+    // width: 177.777778vh;
+    // min-width: 100%;
+    height: 56.25vw; /* (9 / 16) * 100vw */
+    width: 100%;
+
+    @media only screen and (max-width: $bp-largest) {
+      left: 0;
+      top: 30vh;
+    }
+  }
+}
+
+.about {
+  background-color: white;
+
+  display: grid;
+  padding: 15rem 19vw;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+  align-items: center;
+
+  @media only screen and (max-width: $bp-largest) {
+    padding: 15rem 10vw;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 8rem 5vw;
+  }
+  
+  &__img {
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 3;
+      order: 2;
+      justify-self: center;
+      width: 60%;
+    }
+  }
+
+  &__picture {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px #e3e3e3;
+  }
+
+  &__content {
+    text-align: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 3;
+      order: 1;
+    }
+  }
+}
+
+.contact {
+  background-color: $color-primary-light;
+  padding: 8rem;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+  
+  @media only screen and (max-width: $bp-large) {
+    padding: 6rem;
+    gap: 4rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    padding: 3rem;
+  }
+
+  &__map {
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__google-map {
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+
+  &__lists {
+    display: grid;
+    justify-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__headings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__form {
+    display: grid;
+    width: 80%;
+
+    gap: 1.5rem;
+
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 2rem;
+    font-weight: 300;
+
+    @media only screen and (max-width: $bp-largest) {
+      width: 95%;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      width: 100%;
+    }
+
+    .name,
+    .email,
+    .subject {
+      @media only screen and (max-width: $bp-small) {
+        grid-column: 1 / 3;
+      }
+    }
+
+    .message {
+      grid-row: 1 / 4;
+      grid-column: 2 / 3;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-row: 4 / 5;
+        grid-column: 1 / 3;
+      }
+    }
+
+    input,
+    textarea {
+      background-color: transparent;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgba(39, 37, 33, .55);
+      padding: 4px;
+      padding-left: 1.6rem;
+      font-size: 1.6rem;
+      font-family: $font-display;
+    }
+
+    .submit {
+      padding: 1rem 0;
+      width: 50%;
+      justify-self: right;
+      grid-row: 4 / 5;
+      grid-column: 2 / 3;
+      background-color: $color-primary;
+      color: $color-white;
+      cursor: pointer;
+      transition: all .2s;
+
+      @media only screen and (max-width: $bp-small) {
+        grid-row: 5 / 6;
+      }
+    }
+
+    .submit:hover {
+      background-color: $color-primary-opacity;
+      border-color: $color-primary-opacity;
+    }
+  }
+}
+
+//////////////////////////////////////////////////////
+// INSTRUCTIONS PAGE
+
+.instructions {
+  grid-column: full-start / full-end;
+  height: 93vh;
+  background-image: linear-gradient(rgba($color-primary-light, .55), rgba($color-primary-light, .55)), url(rice_wine_main_3.jpg);
+  background-size: cover;
+  background-position: center;
+  
+  display: grid;
+  row-gap: 4rem;
+  padding-left: 7vw;
+  grid-template-columns: max-content;
+  align-content: center;
+  justify-content: flex-start;
+
+  @media only screen and (max-width: $bp-small) {
+    padding-left: 0;
+    grid-template-columns: minmax(85%, min-content);
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__customer,
+  &__admin {
+    & > p {
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1.3em;
+    }
+  }
+
+  &__btn {
+    align-self: flex-start;
+    justify-self: flex-start;
+
+    @media only screen and (max-width: $bp-small) {
+      width: 80%;
+      text-align: center;
+      justify-self: center;
+    }
+  }
+}

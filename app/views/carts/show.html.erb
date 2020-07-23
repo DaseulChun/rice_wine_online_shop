@@ -1,54 +1,155 @@
-<div class="keep-shopping pv1 mt4 has-text-right">
-  <%= link_to 'Keep Shopping', products_path, class: 'button is-primary' %>
-</div>
-<hr />
-<section class="section">
+<% content_for :header do %>
+<header class="carts__intro">
+  <h1 class="heading-2--dark">Shopping Cart</h1>
+</header>
+<% end %>
+
+
+<main class="carts">
+
   <% if @cart.line_items.count > 0 %>
-    <%= render(@cart.line_items) %>
-  <% else %>
-    <div class="title is-4 has-text-centered">Your Cart is Empty!</div>
+
+    <div class="carts-have-items">
+
+      <%# Left Column %>
+      <div class="carts-left-col">
+      
+        <%# Cart Heading %>
+
+        <div class="carts-left-heading">
+          <p>Product</p>
+        </div>
+        <div class="carts-left-heading">
+          <p>&nbsp;</p>
+        </div>
+        <div class="carts-left-heading">
+          <p>Quantity</p>
+        </div>
+        <div class="carts-left-heading">
+          <p>Price / unit</p>
+        </div>
+        <div class="carts-left-heading">
+          <p>Total</p>
+        </div>
+        <div class="carts-left-heading">
+          <p>&nbsp;</p>
+        </div>
+      
+        <div class="carts-left-heading__tab-view">
+          <p>Product</p>
+        </div>
+        <div class="carts-left-heading__tab-view">
+          <p>&nbsp;</p>
+        </div>
+        <div class="carts-left-heading__tab-view carts-left-heading__tab-view--quantity-and-price">
+          <p>Quantity / Price</p>
+        </div>
+
+        <%# Cart Items %>
+        <%= render(@cart.line_items) %>
+
+
+        <%# Bottom Part %>
+        <div class="carts-left-bottom">
+          <%= link_to 'Continue Shopping', products_path, class: 'carts-left-bottom__continue-link' %>
+        </div>
+        
+      </div>
+
+      <%# Right Column %>
+      <div class="carts-right-col">
+        <div class="carts-right-heading">
+          Order Summary
+        </div>
+
+        <div class="carts-right-items">
+          <div class="carts-right-items__subtotal">
+            Subtotal
+          </div>
+          <div class="carts-right-items__subtotal-price">
+            <%= number_to_currency(@cart.total_price) %>
+          </div>
+          
+          <div class="carts-right-items__minus-line-0"></div>
+          <div class="carts-right-items__minus-line">-</div>
+
+          <div class="carts-right-items__sales-tax">
+            Sales Tax
+          </div>
+          <div class="carts-right-items__sales-tax-price">
+            $ 0.00
+          </div>
+
+          <div class="carts-right-items__total-line"><span></span></div>
+          <div class="carts-right-items__total-line"><span></span></div>
+
+          <div class="carts-right-items__total">
+            Total
+          </div>
+          <div class="carts-right-items__total-price">
+            <%= number_to_currency(@cart.total_price) %>
+          </div>
+          <div class="carts-right-items__checkout">
+            <%= link_to "#", class: "carts-right-items__check-out-btn btn-highlight-light", id: "check-out-button" do %>
+              <span><i class="fa fa-credit-card-alt mr2" aria-hidden="true"></i></span>
+              <span>Check Out</span>
+            <% end %>
+          </div>
+
+          <%# Bottom Part %>
+          <div class="carts-right-bottom">
+            <%= link_to 'Continue Shopping', products_path, class: 'carts-right-bottom__continue-link' %>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+  
+  <% else %>  
+    <div class="carts-empty">
+      <div class="heading-2">Your Cart is Empty!</div>
+      <%= link_to 'Continue Shopping', products_path, class: 'btn-primary' %>
+    </div>
   <% end %>
 
-  <div class="columns">
-    <div class="column">
-      <%= button_to 'Empty Cart', cart_path(@cart), method: :delete, data: { confirm: "Are you sure? " }, class: "button is-danger" %>
-    </div>
-    <div class="column total has-text-right">
-      <%= link_to 'Check Out', "#", class: "button is-primary", id: "check-out-button" %>
-      <h4 class="title is-4 mt3">
-        <span class="f5 has-text-grey">Total:</span> <%= number_to_currency(@cart.total_price) %>
-      </h4>
-    </div>
-  </div>
-</section>
+</main>
 
+
+<%# Payment Modal %>
 <div class="modal" id="payment-modal">
+
   <div class="modal-background"></div>
+
   <div class="modal-card">
     <header class="modal-card-head">
       <p class="modal-card-title">Credit or Debit Card</p>
       <button class="delete" aria-label="close" id="modal-close"></button>
     </header>
+
     <section class="modal-card-body">
       <%= form_tag cart_payments_path(@cart), id: 'stripe-token-form' do %>
         <%= hidden_field_tag :stripe_token %>
       <% end %>
 
       <form action="/charge" method="post" id="payment-form">
-        <div class="form-group">
-          <label for="card-element"></label>
-          <div style="width: 30em height: 2em" id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
-          </div>
-
-          <!-- Used to display Element errors. -->
-          <div id="card-errors" role="alert"></div>
+        <label for="card-element"></label>
+        <div style="width: 30em height: 2em" id="card-element">
+          <!-- A Stripe Element will be inserted here. -->
         </div>
+
+        <!-- Used to display Element errors. -->
+        <div id="card-errors" role="alert"></div>
     </section>
+
     <footer class="modal-card-foot">
-      <button class="button is-primary">Submit Payment</button>
+      <button class="btn-dark mr3">Submit Payment</button>
     
-      <%= link_to "Cancel", cart_path(@cart), class:"button is-danger" %>
+      <%= link_to "Cancel", cart_path(@cart), class:"btn-transparent" %>
     </footer>
+
   </div>
+
 </div>

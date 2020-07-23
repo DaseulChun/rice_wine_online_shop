@@ -1,3 +1,440 @@
-// Place all the styles related to the Carts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.carts__intro {
+  grid-column: content-start / content-end;
+  justify-self: center;
+  margin: 10rem 0; 
+
+  @media only screen and (max-width: $bp-small) {
+    margin: 8rem 0; 
+  }
+}
+
+.carts {
+  min-height: 65vh;
+  grid-column: content-start / content-end;
+  margin-bottom: 10rem;
+
+  @media only screen and (max-width: $bp-small) {
+    margin-bottom: 8rem;
+  }
+
+  &-have-items {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    column-gap: 3rem;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+
+  // Left Column //
+
+  &-left-col {
+    display: grid;
+    grid-template-columns: 8.7rem 4fr 2fr 2fr 2fr 8.7rem;
+    row-gap: 2rem;
+    align-items: center;
+    align-self: flex-start;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-template-columns: 8.7rem 1fr 9fr;
+    }
+  }
+
+  &-left-heading {
+    background-color: #efefef;
+    height: 5vh;
+    font-size: 2rem;
+    font-weight: 400;
+
+    display: flex;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-large) {
+      display: none;
+    }
+  }
+
+  &-left-heading__tab-view {
+    display: none;
+    padding: 0 1rem;
+
+    @media only screen and (max-width: $bp-large) {
+      background-color: #efefef;
+      height: 5vh;
+      font-size: 2rem;
+      font-weight: 400;
+
+      display: grid;
+      align-items: center;
+    }
+
+    &--quantity-and-price p {
+      @media only screen and (max-width: $bp-large) {
+        justify-self: flex-end;
+      }
+    }
+  }
+ 
+  &-left-items {
+    grid-column: 1 / 7;
+
+    display: grid;
+    grid-template-columns: 8.7rem 4fr 2fr 2fr 2fr 8.7rem;
+    align-items: flex-start;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 1 / 4;
+
+      display: grid;
+      grid-template-columns: 8.7rem 6fr 4fr;
+      justify-items: flex-start;
+      align-items: center;
+    }
+  }
+
+  &-left-items__image {
+    height: 10rem;
+    width: 8.7rem;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-left-items__name {
+    margin-left: 2rem;
+    color: $color-primary;
+    text-decoration: none;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    &:hover {
+      font-weight: 500;
+    }
+  }
+
+  &-left-items__quantity {
+
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+
+      justify-self: flex-end;
+    }
+  }
+ 
+  &-left-items__price {
+
+    @media only screen and (max-width: $bp-large) {
+      display: none;
+    }
+  }
+
+  &-left-items__total-price {
+    font-size: 2rem;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+
+      justify-self: flex-end;
+    }
+  }
+
+  &-left-items__remove-btn {
+    font-weight: 300;
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    justify-self: center;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+
+      margin-left: 2rem;
+      justify-self: flex-start;
+    }
+  }
+
+  &-left-bottom {
+    grid-column: 5 / 7;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @media only screen and (max-width: $bp-large) {
+      grid-column: 2 / 4;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
+
+    &__continue-link {
+      color: $color-primary;
+      font-weight: 400;
+      transition: all .2s;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+
+  // Right Column //
+  &-right-col {
+
+    @media only screen and (max-width: $bp-small) {
+      margin-top: 2rem;
+    }
+  }
+
+  &-right-heading {
+    height: 5vh;
+    background-color: #efefef;
+    font-size: 2rem;
+    font-weight: 400;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }
+
+  &-right-items {
+    padding: 2rem;
+    font-size: 2rem;
+    border: 1px solid #efefef;
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.8rem;
+  }
+  
+  &-right-items div[class*="price"] {
+    justify-self: flex-end;
+  }
+
+  &-right-items__total,
+  &-right-items__total-price {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  
+  &-right-items__checkout {
+    grid-column: 1 / 3;
+  }
+  
+  &-right-items__check-out-btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  &-right-items__minus-line {
+    justify-self: flex-end;
+  }
+  
+  &-right-items__total-line span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: black;
+  }
+
+  &-right-bottom {
+    display: none;
+    grid-column: 1 / -1;
+    text-align: center;
+
+    @media only screen and (max-width: $bp-small) {
+      display: block;
+    }
+
+    &__continue-link {
+      color: $color-primary;
+      font-weight: 400;
+      transition: all .2s;
+
+      &:hover {
+        transform: translateY(-3px);
+      }
+    }
+
+  }
+
+  //////////////////////////////////////
+  // Carts No Items
+  //////////////////////////////////////
+
+  &-empty {
+    height: 40vh;
+
+    display: grid;
+    justify-content: center;
+    align-content: flex-start;
+    row-gap: 2rem;
+
+    a {
+      text-align: center;
+    }
+  }
+}
+
+
+
+//////////////////////////////////////
+// Payment Modal
+//////////////////////////////////////
+
+.modal, 
+.modal-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modal-background {
+  background-color: rgba(10, 10, 10, 0.86);
+  z-index: 60;
+}
+
+.modal {
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  z-index: 40;
+}
+
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  margin: 0 auto;
+  width: 640px;
+  z-index: 70;
+
+  @media only screen and (max-width: $bp-medium) {
+    width: 80vw;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    width: 95vw;
+  }
+}
+
+.modal-card-head {
+  border-bottom: 1px solid #dbdbdb;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.modal-card-head, 
+.modal-card-foot {
+  align-items: center;
+  background-color: whitesmoke;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-card-title {
+  color: $color-primary;
+
+  flex-grow: 1;
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.delete {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: rgba(10, 10, 10, 0.2);
+  border: none;
+  border-radius: 290486px;
+  cursor: pointer;
+  pointer-events: auto;
+  display: inline-block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 0;
+  height: 20px;
+  max-height: 20px;
+  max-width: 20px;
+  min-height: 20px;
+  min-width: 20px;
+  outline: none;
+  position: relative;
+  vertical-align: top;
+  width: 20px;
+}
+
+.delete::before, 
+.delete::after {
+  background-color: $color-white;
+  content: "";
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform-origin: center center;
+}
+
+.delete::before {
+  height: 2px;
+  width: 50%;
+}
+
+.delete::after {
+  height: 50%;
+  width: 2px;
+}
+
+.delete:hover, 
+.delete:focus {
+  background-color: rgba(10, 10, 10, 0.3);
+}
+
+.modal-card-body {
+  -webkit-overflow-scrolling: touch;
+  background-color: $color-white;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-card-foot {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top: 1px solid #dbdbdb;
+}

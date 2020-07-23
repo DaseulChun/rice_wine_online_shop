@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RiceWineOnlineShop</title>
+    <title>The Pure Rice &ndash; Premium Rice Wine</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', "https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap" %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+    <%#= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
     
     <script src="https://js.stripe.com/v3/"></script>
@@ -16,6 +16,7 @@
   </head>
 
   <body class="<%= yield (:body_class) %>">
+  <div class="grid-container">
     <% if flash[:notice] %>
       <div class="notification is-success global-notification">
         <p class="notice"><%= notice %></p>
@@ -28,64 +29,135 @@
     </div>
     <% end %>
 
-    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <%= link_to products_path, class:"navbar-item" do %>
-          <h1 class="title white is-5">Let's Drink!</h1>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation" onscroll="changeLogo()">
+      <div class="navbar__brand">
+        <%= link_to root_path, class:"navbar__logo" do %>
+          <%= image_tag "logo.png", alt: "rice wine logo", class: "navbar__logo-image" %> 
         <% end  %>
-      <div class="navbar-burger burger" data-target="navbar">
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
-    </div>
 
-    <div id="navbar" class="navbar-menu">
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="field is-grouped">
-            <%= link_to "Instructions", "/instructions", class:"navbar-item button is-primary" %>
-            <%= link_to "Contact", products_path, class:"navbar-item button is-primary" %>
-            <% if user_signed_in? %>
-              <%# Link to : Add Product, only available to ADMIN USER %>
-              <% if current_user.is_admin %>
-                <%= link_to "Add Product", new_product_path, class:"navbar-item button is-primary" %>
-              <% end %>
+      <div class="navbar__list">
+        <%= link_to "Instructions", "/instructions", class:"navbar__item" %>
+        <%= link_to "Shop", products_path, class:"navbar__item" %>
+        <% if user_signed_in? %>
+          <%# Link to : Add Product, only available to ADMIN USER %>
+          <% if current_user.is_admin %>
+            <%= link_to "Add Product", new_product_path, class:"navbar__item" %>
+          <% end %>
 
-              <%# Link to : Shopping Cart Show Page, only available to CUSTOMER USER %>
-              <% if !current_user.is_admin %>
-                <%= link_to cart_path(@current_cart), class:"navbar-item button is-primary" do %>
-                <span class="icon is-small">
-                  <i class="fa fa-shopping-cart"></i>
-                </span>
-                <span>Cart
-                  <%= count_cart_item_totals %>
-                  </span>
-                <% end %>
-              <% end %>
-
-              <div class="navbar-item has-dropdown is-hoverable">
-                <p class="navbar-link">Hello, <%= current_user.full_name %><p/>
-                <div class="navbar-dropdown is-right">
-                  <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"navbar-item" %>
-                </div>
-              </div>
-            <% else %>
-              <%= link_to "Sign In", new_session_path, class:"navbar-item button is-primary" %>
-              <%= link_to "Sign Up", new_user_path, class:"navbar-item button is-primary"%>
+          <%# Link to : Shopping Cart Show Page, only available to CUSTOMER USER %>
+          <% if !current_user.is_admin %>
+            <%= link_to cart_path(@current_cart), class:"navbar__item cart" do %>
+            <span class="icon is-small mr2">
+              <i class="fa fa-shopping-cart"></i>
+            </span>
+            <span class="cart__text">Cart
+              <span class="cart__count"><%= count_cart_item_totals %></span>
+            </span>
             <% end %>
-          </div>
-        </div>
+          <% end %>
+          
+          <p class="navbar__item">Hello, <%= current_user.full_name %></p>
+          <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"navbar__item" %>
+          
+        <% else %>
+          <%= link_to "Sign In", new_session_path, class:"navbar__item" %>
+          <%= link_to "Sign Up", new_user_path, class:"navbar__item"%>
+        <% end %>
       </div>
-    </div>
-  </nav>
 
-  <%= yield(:header) %>
+      <!-- Hamburger menu for smaller viewport ( < 800px)-->
+      <div class="navbar__tab-view">
+        <% if user_signed_in? %>
+          <% if !current_user.is_admin %>
+            <%= link_to cart_path(@current_cart), class:"cart" do %>
+            <span class="icon is-small mr2">
+              <i class="fa fa-shopping-cart"></i>
+            </span>
+            <span class="cart__text">Cart
+              <span class="cart__count"><%= count_cart_item_totals %></span>
+            </span>
+            <% end %>
+          <% end %>
+        <% end %>
 
-  <div class="container">
+        <button class="navbar__menu-btn" onclick="toggleDrawer()">
+          <span id="diagonal-1"></span>
+          <span id="horizontal"></span>
+          <span id="diagonal-2"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="navbar-shadow">&nbsp;</div>
+
+    <aside class="drawer" id="drawer">
+      <div class="drawer__overlay" onclick="toggleDrawer()"></div>
+      <div class="drawer__wrapper">
+        <div class="drawer__header">
+
+          <% if user_signed_in? %>
+            <p class="drawer__title">Hello, <%= current_user.full_name %></p>
+            <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to log out?"}, class:"drawer__signout-btn" %>
+          <% else %>
+            <p class="drawer__title">Hello Guest!</p>
+          <% end %>
+        </div>
+
+        <div class="drawer__content">
+          <%= link_to "Instructions", "/instructions", class:"drawer__content-item" %>
+          <%= link_to "Shop", products_path, class:"drawer__content-item" %>
+          <% if user_signed_in? %>
+            <%# Link to : Add Product, only available to ADMIN USER %>
+            <% if current_user.is_admin %>
+              <%= link_to "Add Product", new_product_path, class:"drawer__content-item" %>
+            <% end %>
+            
+          <% else %>
+            <%= link_to "Sign In", new_session_path, class:"drawer__content-item" %>
+            <%= link_to "Sign Up", new_user_path, class:"drawer__content-item"%>
+          <% end %>
+        </div>
+
+        
+      </div>
+    </aside>
+
+    <%= yield(:header) %>
 
     <%= yield %>
 
+    <footer class="footer on-top-of-video">
+      <ul class="nav">
+        <li class="nav__item">
+          <a href="#" class="nav__link">About us</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__link">FAQ</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__link">Shipping & Refunds</a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="nav__link">Store Policy</a>
+        </li>
+      </ul>
+      <ul class="sns">
+        <li class="sns__item">
+          <a href="#"><i class="fa fa-facebook-official sns__icon" aria-hidden="true"></i></a>
+        </li>
+        <li class="sns__item">
+          <a href="#"><i class="fa fa-twitter sns__icon" aria-hidden="true"></i></a>
+        </li>
+        <li class="sns__item">
+          <a href="#"><i class="fa fa-instagram sns__icon" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+      <p class="copyright">
+        &copy; Copyright 2020 by Daseul Chun. All rights reserved. 
+      </p>
+    </footer>
   </div>
 
   </body>

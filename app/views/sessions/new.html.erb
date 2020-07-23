@@ -1,36 +1,23 @@
-<section class="section">
-	<div class="container">
-		<div class="columns is-centered">
-			<div class="column is-4">
-				<h2 class="title is-2">Sign in</h2>
-				<%= simple_form_for :sessions, :url => sessions_path do |f| %>
+<section class="sign-in">
 
-				  <div class="field">
-				  	<div class="control">
-				    	<%= f.input :email, 
-                  required: false, 
-                  input_html: { class: "input"}, 
-                  wrapper: false, 
-                  label_html: { class: "label" },
-                  placeholder: 'user@example.com' %>
-				    </div>
-				  </div>
+	<h2 class="heading-2--bold mb4">Sign in</h2>
 
-				  <div class="field">
-				  	<div class="control">
-				    <%= f.input :password, 
-                required: false, 
-                input_html: { class: "input"}, 
-                wrapper: false, 
-                label_html: { class: "label" },
-                placeholder: 'Enter your password' %>
-						</div>
-					</div>
+	<%= simple_form_for :sessions, :url => sessions_path do |f| %>
+		<%= f.input :email, 
+				required: false, 
+				input_html: { class: "input"}, 
+				wrapper: false, 
+				label_html: { class: "label" },
+				placeholder: 'user@example.com' %>
 
-				  <%= f.button :submit, "Sign in", class:"button is-outlined is-medium" %>
-				<% end %>
+		<%= f.input :password, 
+				required: false, 
+				input_html: { class: "input"}, 
+				wrapper: false, 
+				label_html: { class: "label" },
+				placeholder: 'Enter your password' %>
 
-			</div>
-		</div>
-	</div>
+		<%= f.button :submit, "Sign in", class:"btn-transparent mt3" %>
+	<% end %>
+
 </section>

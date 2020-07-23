@@ -1,7 +1,3 @@
-// Place all the styles related to the payments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .StripeElement {
   box-sizing: border-box;
 
@@ -28,4 +24,32 @@
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+}
+
+
+// Thank-you Page
+
+.thank-you {
+  grid-column: full-start / full-end;
+  height: 93vh;
+  background-image: linear-gradient(rgba($color-primary-light, .75), rgba($color-primary-light, .75)), url(rice_wine_main_3.jpg);
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.thank-you__heading {
+  font-size: 10rem;
+  font-weight: 300;
+}
+
+.thank-you__body {
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
 }

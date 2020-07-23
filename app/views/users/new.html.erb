@@ -1,78 +1,49 @@
-<div class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-4">
+<div class="sign-up">
 
-        <h2 class="title is-2">Sign Up</h2>
+  <h2 class="heading-2--bold mb4">Sign Up</h2>
 
-        <%= simple_form_for :users, :url => users_path do |f| %>
-          <%= f.error_notification %>
+  <%= simple_form_for :users, :url => users_path do |f| %>
+    <%= f.error_notification %>
 
-          <div class="field">
-            <div class="control">
-            <%= f.input :first_name, 
-                required: true, 
-                autofocus: true, 
-                input_html: { class:"input" }, 
-                wrapper: false, 
-                label_html: { class:"label" },
-                placeholder: 'James' %>
-            </div>
-          </div>
+    <%= f.input :first_name, 
+        required: true, 
+        autofocus: true, 
+        input_html: { class:"input" }, 
+        wrapper: false, 
+        label_html: { class:"label" },
+        placeholder: 'James' %>
+    
+    <%= f.input :last_name, 
+        required: true, 
+        autofocus: true, 
+        input_html: { class:"input" }, 
+        wrapper: false, 
+        label_html: { class:"label" },
+        placeholder: 'Smith' %>
+    
+    <%= f.input :email, 
+        required: true, 
+        input_html: { class:"input" }, 
+        wrapper: false, 
+        label_html: { class:"label" },
+        placeholder: 'user@example.com' %>
+  
+      <%= f.input :password, 
+          required: true, 
+          input_html: { class:"input" }, 
+          wrapper: false, 
+          label_html: { class:"label" },
+          placeholder: 'Enter your password' %>
+  
+      <%= f.input :password_confirmation, 
+          required: true, 
+          input_html: { class: "input" }, 
+          wrapper: false, 
+          label_html: { class: "label" },
+          placeholder: 'Confirm your your password' %>
 
-          <div class="field">
-            <div class="control">
-            <%= f.input :last_name, 
-                required: true, 
-                autofocus: true, 
-                input_html: { class:"input" }, 
-                wrapper: false, 
-                label_html: { class:"label" },
-                placeholder: 'Smith' %>
-            </div>
-          </div>
+      <%= f.button :submit, "Sign up", class:"btn-transparent mt3" %>
 
-          <div class="field">
-            <div class="control">
-            <%= f.input :email, 
-                required: true, 
-                input_html: { class:"input" }, 
-                wrapper: false, 
-                label_html: { class:"label" },
-                placeholder: 'user@example.com' %>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <%= f.input :password, 
-                  required: true, 
-                  input_html: { class:"input" }, 
-                  wrapper: false, 
-                  label_html: { class:"label" },
-                  placeholder: 'Enter your password' %>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <%= f.input :password_confirmation, 
-                  required: true, 
-                  input_html: { class: "input" }, 
-                  wrapper: false, 
-                  label_html: { class: "label" },
-                  placeholder: 'Confirm your your password' %>
-            </div>
-          </div>
-
-          <div class="field">
-            <div class="control">
-              <%= f.button :submit, "Sign up", class:"button is-primary is-medium" %>
-            </div>
-          </div>
-
-        <% end %>
-      </div>
-    </div>
-  </div>
+  <% end %>
+    
 </div>

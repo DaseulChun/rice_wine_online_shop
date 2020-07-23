@@ -1,38 +1,31 @@
 <% content_for :header do %>
-<section class="hero is-primary">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        Rice Wine Products
-      </h1>
-    </div>
-  </div>
-</section>
+<header class="products__intro">
+  <h1 class="heading-2--dark">Choose Your Rice Wine</h1>
+</header>
 <% end %>
 
-<% content_for :body_class, 'bg-light' %>
-<div class="product-index-grid pt4">
+<main class="products">
+
   <% @products.each do |product| %>
+    <div class="product border-light">
 
-    <div class="product border-light bg-white">
-      <div class="product-thumb">
-      <%= link_to image_tag(product.image.variant(resize: '500X500')), product_path(product) %>
-    </div>
+      <div class="product__thumb">
+        <%= link_to image_tag(product.image.variant(resize: '300X500')), product_path(product) %>
+      </div>
 
-    <div class="pa3">
+      <h3 class="product__title"><%= link_to product.title, product_path(product) %></h3>
 
-      <h3 class="fw7 f4 title"><%= link_to product.title, product_path(product) %></h3>
-
-      <p class="f3 fw6 has-text-right pt2 price"><%= number_to_currency(product.price) %></p>
+      <p class="product__price"><%= number_to_currency(product.price) %></p>
 
       <% if can?(:crud, product) %>
-        <div class="admin-button">
-          <%= link_to 'Edit', edit_product_path(product), class: "button is-small" %>
-          <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+        <div class="product__admin-btn">
+          <%= link_to 'Edit', edit_product_path(product), class: "btn-transparent btn-transparent--small" %>
+          <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: "Are you sure ?" }, class: "btn-transparent btn-transparent--small" %>
         </div>
       <% end %>
 
     </div>
-  </div>
   <% end %>
-</div>
+
+</main>
+
