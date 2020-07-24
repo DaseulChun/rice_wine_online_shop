@@ -285,12 +285,20 @@
   }
 
   &__customer,
-  &__admin {
+  &__admin,
+  &__test-card {
     & > p {
       font-size: 2rem;
       font-weight: 300;
       line-height: 1.3em;
     }
+  }
+
+  &__test-card {
+    display: inline-block;
+    border: 1px solid $color-primary;
+    padding: 1rem;
+    margin-top: 1rem;
   }
 
   &__btn {

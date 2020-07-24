@@ -3,16 +3,23 @@
   
   <div class="instructions__customer">
     <h2 class="heading-2 mb3">How to login as a Customer?</h2>
-    <p>email: customer.user@example.com</p>
-    <p>password: supersecret</p>
+    <p>&bull; email: customer.user@example.com</p>
+    <p>&bull; password: supersecret</p>
     <p>As a customer, you can add products to the cart</p>
+    <p>Also process payments (Use the <strong>Test Card</strong> below)</p>
+    <div class="instructions__test-card">
+      <p>&bull; Test Card Number: 5454 5454 5454 5454</p>
+      <p>&bull; Expiry Date: Any dates but future dates</p>
+      <p>&bull; CVC: 111</p>
+      <p>&bull; ZIP: 11111</p>
+    </div>
   </div>
 
   <div class="instructions__admin">
-    <h2 class="heading-2 mb3">How to login as a Admin User?</h2>
-    <p>email: admin.user@example.com</p>
-    <p>password: supersecret</p>
-    <p>As a admin user, you can add/ edit/ delete products</p>
+    <h2 class="heading-2 mb3">How to login as an Admin User?</h2>
+    <p>&bull; email: admin.user@example.com</p>
+    <p>&bull; password: supersecret</p>
+    <p>As an admin user, you can add/ edit/ delete products</p>
   </div>
 
   <%= link_to 'Back to Main', root_path , class: "instructions__btn btn-primary" %>
