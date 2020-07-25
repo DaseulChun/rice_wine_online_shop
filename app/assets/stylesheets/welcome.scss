@@ -284,6 +284,11 @@
     text-align: center;
   }
 
+  @media only screen and (max-width: $bp-smallest) {
+    height: auto;
+    padding: 8rem 0;
+  }
+
   &__customer,
   &__admin,
   &__test-card {

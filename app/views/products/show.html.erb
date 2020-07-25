@@ -22,7 +22,7 @@
     
       <div class="product-show__btn">
         <% if !current_user&.is_admin %>
-          <%= button_to line_items_path(product_id: @product), class: 'product-show__btn-content btn-primary btn-primary--wide' do %>
+          <%= button_to line_items_path(product_id: @product), class: 'product-show__btn-customer btn-primary btn-primary--wide' do %>
             <span class="icon mr3">
               <i class="fa fa-shopping-cart fa-2x"></i>
             </span>
@@ -31,9 +31,9 @@
         <% end %>
 
         <% if current_user&.is_admin %>   
-          <%= link_to 'Edit', edit_product_path(@product), class: "btn-primary btn-primary--wide mr3" %>
+          <%= link_to 'Edit', edit_product_path(@product), class: "btn-primary btn-primary--wide product-show__btn-admin mr3" %>
 
-          <%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: "Are you sure ?" }, class: "btn-primary btn-primary--wide" %>
+          <%= link_to 'Delete', product_path(@product), method: :delete, data: { confirm: "Are you sure ?" }, class: "btn-primary btn-primary--wide product-show__btn-admin" %>
         <% end %>
       </div>
     </div>
