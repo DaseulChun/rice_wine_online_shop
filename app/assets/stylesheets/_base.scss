@@ -116,7 +116,7 @@ body {
     transform: scale(1.5) translateX(4.2rem) translateY(1.5rem);
     transition: all 0.3s;
 
-    @media only screen and (max-width: $bp-medium) {
+    @media only screen and (max-width: $bp-largest) {
       transform: scale(1) translateX(0px) translateY(0px);
     }
   }
