@@ -1,0 +1,2 @@
+ENV['STRIPE_PUBLISHABLE_KEY'] = "Enter your Stripe Publishable Key"
+ENV['STRIPE_SECRET_KEY'] = "Enter your Stripe Secret Key"
